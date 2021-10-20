@@ -61,46 +61,29 @@
         </li>
       </ul>
       <p>
-        Its <a href=
-        "https://github.com/web-platform-tests/wpt/tree/master/webrtc">associated
-        test suite</a> will be used to build an <a href=
-        "https://w3c.github.io/webrtc-interop-reports/webrtc-pc-report.html">implementation
-        report</a> of the API.
+        その<a href="https://github.com/web-platform-tests/wpt/tree/master/webrtc">関連するテストスイート</a>は、 API の<a href="https://w3c.github.io/webrtc-interop-reports/webrtc-pc-report.html">実装レポート</a>を構築するために使用されます。
       </p>
       <p>
-        To go into Proposed Recommendation status, the group expects to
-        demonstrate implementation of each feature in at least two deployed
-        browsers, and at least one implementation of each optional feature.
-        Mandatory feature with only one implementation may be marked as
-        optional in a revised Candidate Recommendation where applicable.
+        提案型勧告のステータスに移行するために、グループは少なくとも2つの導入済みブラウザで各機能の実装を実証し、各オプション機能の実装を少なくとも1つ行うことを期待している。 実装が1つしかない必須機能は、必要に応じて改訂された勧告候補の中でオプションとしてマークすることができる。
       </p>
     </section>
     <section class="informative" id="intro">
       <h2>
-        Introduction
+        はじめに
       </h2>
       <p>
-        There are a number of facets to peer-to-peer communications and
-        video-conferencing in HTML covered by this specification:
+        この仕様で扱うHTMLでのピアツーピア通信やビデオ会議には、さまざまな側面があります:
       </p>
       <ul>
-        <li>Connecting to remote peers using NAT-traversal technologies such as
-        ICE, STUN, and TURN.
+        <li>ICE、STUN、TURNなどのNATトラバーサル技術を用いたリモートピアへの接続。
         </li>
-        <li>Sending the locally-produced tracks to remote peers and receiving
-        tracks from remote peers.
+        <li>ローカルで制作したトラックをリモートピアに送信したり、リモートピアからトラックを受信したりすること。
         </li>
-        <li>Sending arbitrary data directly to remote peers.
+        <li>リモートピアに任意のデータを直接送信する。
         </li>
       </ul>
       <p>
-        This document defines the APIs used for these features. This
-        specification is being developed in conjunction with a protocol
-        specification developed by the <a href=
-        "https://datatracker.ietf.org/wg/rtcweb/">IETF RTCWEB group</a> and an
-        API specification to get access to local media devices [[GETUSERMEDIA]]
-        developed by the WebRTC Working Group. An overview of the system can be
-        found in [[RFC8825]] and [[RFC8826]].
+        本ドキュメントでは、これらの機能に使用される API を定義しています。本仕様は、 <a href="https://datatracker.ietf.org/wg/rtcweb/">IETF RTCWEB グループ</a>が策定したプロトコル仕様と、 WebRTC ワーキンググループが策定したローカルメディアデバイスへのアクセスを取得するための API 仕様 [[GETUSERMEDIA]] と併せて策定されています。このシステムの概要は、 [[RFC8825]] および [[RFC8826]] に記載されています。
       </p>
     </section>
     <section id="conformance">
