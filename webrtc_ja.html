@@ -531,11 +531,7 @@
             <dfn>RTCBundlePolicy</dfn> Enum
           </h4>
           <p>
-            As described in <span data-jsep="pc-constructor">[[!RFC8829]]</span>,
-            bundle policy affects which media tracks are negotiated if the
-            remote endpoint is not bundle-aware, and what ICE candidates are
-            gathered. If the remote endpoint is bundle-aware, all media tracks
-            and data channels are bundled onto the same transport.
+            <span data-jsep="pc-constructor">[[!RFC8829]]</span> に記載されているように、バンドルポリシーは、リモートエンドポイントがバンドルを認識していない場合にどのメディアトラックをネゴシエートするか、どの ICE 候補を収集するかに影響します。リモートエンドポイントがバンドルを認識している場合、すべてのメディアトラックとデータチャンネルが同じトランスポートにバンドルされます。
           </p>
           <div>
             <pre id="target-bundle-policy" class="idl">enum RTCBundlePolicy {
