@@ -368,12 +368,10 @@
         </section>
         <section>
           <h4>
-            <dfn>RTCIceServer</dfn> Dictionary
+            <dfn>RTCIceServer</dfn> ディクショナリ
           </h4>
           <p>
-            The {{RTCIceServer}} dictionary is used to describe the STUN and
-            TURN servers that can be used by the [= ICE Agent =] to establish a
-            connection with a peer.
+            {{RTCIceServer}} ディクショナリは、 [= ICE Agent =] がピアとの接続を確立するために使用できる STUN および TURN サーバーを記述するために使用されます。
           </p>
           <div>
             <pre class="idl">dictionary RTCIceServer {
@@ -888,19 +886,13 @@
                     <dfn data-idl="">complete</dfn>
                   </td>
                   <td>
-                    At least one {{RTCIceTransport}} exists, and all
-                    {{RTCIceTransport}}s are in the
-                    {{RTCIceGathererState/"complete"}} gathering state.
+                    少なくとも1つの {{RTCIceTransport}} が存在し、すべての {{RTCIceGathererState/"complete”}} の採集状態にあります。
                   </td>
                 </tr>
               </tbody>
             </table>
             <p>
-              The set of transports considered is the one
-              presently referenced by the PeerConnection's
-              [= set of transceivers =] and the PeerConnection's
-              <dfn data-dfn-for="RTCPeerConnection">[[\SctpTransport]]</dfn>
-              internal slot if not <code>null</code>.
+                考慮されるトランスポートのセットは PeerConnection の [= set of transceivers =] と PeerConnection の <dfn data-dfn-for="RTCPeerConnection">[[\SctpTransport]]</dfn> の内部スロットが <code>null</code> でなければ、現在参照されているものです。
            </p>
           </div>
         </section>
