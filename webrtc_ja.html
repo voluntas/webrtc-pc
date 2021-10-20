@@ -463,13 +463,7 @@
             <dfn>RTCIceTransportPolicy</dfn> Enum
           </h4>
           <p>
-            As described in <span data-jsep="pc-constructor">[[!RFC8829]]</span>, if
-            the {{RTCConfiguration/iceTransportPolicy}} member of the
-            {{RTCConfiguration}} is specified, it defines the <span data-jsep=
-            "ice-candidate-policy">ICE candidate policy [[!RFC8829]]</span> the
-            browser uses to surface the permitted candidates to the
-            application; only these candidates will be used for connectivity
-            checks.
+            <span data-jsep="pc-constructor">[[!RFC8829]]</span> に記載されているように、 {{RTCConfiguration/iceTransportPolicy}} のメンバーが指定されている場合、ブラウザがアプリケーションに許可された候補を表示するために使用する<span data-jsep="ice-candidate-policy"> ICE 候補ポリシー[[!RFC8829]]</span> が定義されます。
           </p>
           <div>
             <pre class="idl">enum RTCIceTransportPolicy {
@@ -492,16 +486,10 @@
                   </td>
                   <td>
                     <p>
-                      The [= ICE Agent =] uses only media relay candidates such
-                      as candidates passing through a TURN server.
+                      [= ICE Agent =] は、TURNサーバーを経由する候補者など、メディアリレー候補者のみを使用します。
                     </p>
                     <div class="note">
-                      This can be used to prevent the remote endpoint from
-                      learning the user's IP addresses, which may be desired in
-                      certain use cases. For example, in a "call"-based
-                      application, the application may want to prevent an
-                      unknown caller from learning the callee's IP addresses
-                      until the callee has consented in some way.
+                      これにより、リモートエンドポイントがユーザーのIPアドレスを知ることを防ぐことができますが、これは特定のユースケースで必要となる場合があります。例えば、「通話」を基本とするアプリケーションでは、着呼側が何らかの方法で同意するまで、未知の着呼側が着呼側のIPアドレスを知ることを防ぎたい場合があります。
                     </div>
                   </td>
                 </tr>
@@ -511,14 +499,10 @@
                   </td>
                   <td>
                     <p>
-                      The [= ICE Agent =] can use any type of candidate when
-                      this value is specified.
+                      この値が指定されている場合、[= ICE Agent =] はどのタイプの候補でも使用できます。
                     </p>
                     <div class="note">
-                      The implementation can still use its own candidate
-                      filtering policy in order to limit the IP addresses
-                      exposed to the application, as noted in the description
-                      of {{RTCIceCandidate}}.{{RTCIceCandidate/address}}.
+                      実装では、 {{RTCIceCandidate}}.{{RTCIceCandidate/address}} の説明に記載されているように、アプリケーションに公開されるIPアドレスを制限するために、独自の候補フィルタリングポリシーを使用することができます。
                     </div>
                   </td>
                 </tr>
