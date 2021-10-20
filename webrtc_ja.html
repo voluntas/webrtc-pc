@@ -37,27 +37,27 @@
     </p>
     <section id="abstract">
       <p>
-        本ドキュメントでは、適切なリアルタイムプロトコル群を実装した他のブラウザやデバイスとの間で、メディアや一般的なアプリケーションデータの送受信を可能にする、WebIDLによる一連のECMAScript APIを定義する。本仕様は、IETF RTCWEBグループが策定したプロトコル仕様や、ローカルメディアデバイスにアクセスするためのAPI仕様と併せて策定されています。
+        本ドキュメントでは、適切なリアルタイムプロトコル群を実装した他のブラウザやデバイスとの間で、メディアや一般的なアプリケーションデータの送受信を可能にする、 WebIDL による一連の ECMAScript API を定義する。本仕様は、 IETF RTCWEB グループが策定したプロトコル仕様や、ローカルメディアデバイスにアクセスするための API 仕様と併せて策定されています。
       </p>
     </section>
     <section id="sotd" class="updateable-rec">
       <p>
-        このAPIは、WHATWGで行われた予備的な作業に基づいています。
+        この API は、 WHATWG で行われた予備的な作業に基づいています。
       </p>
       <p>
-        この仕様は機能的に完成しており、これ以上の実質的な変更はなく安定していることが期待されています。<a href="https://www.w3.org/TR/2019/CR-webrtc-20191213/">前回のCandidate Recommendation</a>以降、以下のような実質的な変更が仕様にもたらされました。
+        この仕様は機能的に完成しており、これ以上の実質的な変更はなく安定していることが期待されています。<a href="https://www.w3.org/TR/2019/CR-webrtc-20191213/">前回の Candidate Recommendation</a> 以降、以下のような実質的な変更が仕様にもたらされました。
       </p>
       <ul>
-        <li>WebRTCがポートスキャンに使用されるのを防ぐために、ICE候補を管理者が禁止できるようにする
+        <li>WebRTC がポートスキャンに使用されるのを防ぐために、 ICE 候補を管理者が禁止できるようにする
         </li>
-        <li>複数のDTLS証明書を設定する機能が廃止されました
+        <li>複数の DTLS 証明書を設定する機能が廃止されました
         </li>
         <li>
-          <code>voiceActivityFlag</code>は、実装されていないため、リスクがあると判断されました
+          <code>voiceActivityFlag</code> は、実装されていないため、リスクがあると判断されました
         </li>
-        <li><code>PeerConnection</code>を閉じるときのステートマシンが明確になりました。
+        <li><code>PeerConnection</code> を閉じるときのステートマシンが明確になりました。
         </li>
-        <li><a href="https://w3c.github.io/webrtc-stats/">WebRTC Statistics</a>の最新の変更に合わせる。
+        <li><a href="https://w3c.github.io/webrtc-stats/">WebRTC Statistics</a> の最新の変更に合わせる。
         </li>
       </ul>
       <p>
