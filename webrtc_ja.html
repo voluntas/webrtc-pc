@@ -596,10 +596,7 @@
             <dfn>RTCRtcpMuxPolicy</dfn> Enum
           </h4>
           <p>
-            As described in <span data-jsep="pc-constructor">[[!RFC8829]]</span>, the
-            {{RTCRtcpMuxPolicy}} affects what ICE candidates are gathered to
-            support non-multiplexed RTCP. The only value defined in this spec
-            is {{RTCRtcpMuxPolicy/"require"}}.
+            <span data-jsep="pc-constructor">[[!RFC8829]]</span> に記載されているように、 {{RTCRtcpMuxPolicy}} は、非多重化 RTCP をサポートするために集められる ICE 候補に影響を与えます。この仕様で定義されている値は {{RTCRtcpMuxPolicy/"require"}} のみです。
           </p>
           <div>
             <pre id="target-rtcp-mux-policy" class="idl">
@@ -621,9 +618,7 @@
                     <dfn data-idl="">require</dfn>
                   </td>
                   <td>
-                    Gather ICE candidates only for RTP and multiplex RTCP on
-                    the RTP candidates. If the remote endpoint is not capable
-                    of rtcp-mux, session negotiation will fail.
+                    RTP のみの ICE 候補を集め、 RTP 候補に RTCP を多重化します。リモートエンドポイントが rtcp-mux に対応していない場合、セッションネゴシエーションは失敗します。
                   </td>
                 </tr>
               </tbody>
@@ -1267,16 +1262,7 @@
               </li>
               <li>
                 <p>
-                  Else, generate one or more new {{RTCCertificate}} instances
-                  with this {{RTCPeerConnection}} instance and store them. This
-                  MAY happen asynchronously and the value of
-                  {{RTCConfiguration/certificates}} remains
-                  <code>undefined</code> for the subsequent steps. As noted in
-                  Section 4.3.2.3 of [[RFC8826]], WebRTC utilizes
-                  self-signed rather than Public Key Infrastructure (PKI)
-                  certificates, so that the expiration check is to ensure that
-                  keys are not used indefinitely and additional certificate
-                  checks are unnecessary.
+                  または、この {{RTCPeerConnection}} インスタンスで 1 つ以上の新しい {{RTCCertificate}} インスタンスを生成し、それらを保存します。これは非同期に行ってもよく、 {{RTCConfiguration/certificates}} の値は後続のステップで <code>undefined</code> のままになります。 [[RFC8826]] のセクション 4.3.2.3 に記載されているように、 WebRTC は PKI(Public Key Infrastructure) 証明書ではなく自己署名証明書を利用するため、有効期限チェックは鍵が無期限に使用されないようにするためのものであり、追加の証明書チェックは不要です。
                 </p>
               </li>
               <li>
@@ -1444,13 +1430,7 @@
               Chain an asynchronous operation
             </h4>
             <p>
-              An {{RTCPeerConnection}} object has an <dfn>operations
-              chain</dfn>, {{RTCPeerConnection/[[Operations]]}}, which ensures that only one
-              asynchronous operation in the chain executes concurrently. If
-              subsequent calls are made while the returned promise of a
-              previous call is still not [= settled =], they are added to the
-              chain and executed when all the previous calls have finished
-              executing and their promises have [= settled =].
+              {{RTCPeerConnection}} オブジェクトには、 {{RTCPeerConnection/[[Operations]]}} という <dfn>operations chain</dfn> があり、チェーン内の1つの非同期オペレーションのみが同時に実行されるようになっています。前のコールの返された約束がまだ [= settled =]で ない間に後続のコールが行われた場合、それらはチェーンに追加され、すべての前のコールの実行が終了し、それらの約束が [= settled =] になったときに実行されます。
             </p>
             <p data-tests="RTCPeerConnection-createOffer.html">
               To <dfn data-lt="chain|chaining">chain an operation</dfn> to an
