@@ -679,27 +679,10 @@
                     as described in section 9.1.1.1 of [[RFC5245]].
                   </p>
                   <p>
-                    When the value of this dictionary member is
-                    <code>false</code>, and the relevant {{RTCPeerConnection}}
-                    object's {{RTCPeerConnection/[[LocalIceCredentialsToReplace]]}} slot is
-                    empty, and the
-                    {{RTCPeerConnection/currentLocalDescription}} attribute has
-                    valid ICE credentials, then the generated description will
-                    have the same ICE credentials as the current value from the
-                    {{RTCPeerConnection/currentLocalDescription}} attribute.
+                    この辞書メンバーの値が<code>false</code>で、関連する {{RTCPeerConnection}} オブジェクトの  {{RTCPeerConnection/[[LoallIceCredentialsToReplace]]}} スロットが空のときかつ、 {{RTCPeerConnection/currentLocalDescription}} 属性に有効な ICE 認証情報がある場合、生成された Description は {{RTCPeerConnection/currentLocalDescription}} 属性からの現在の値と同じ ICE 認証情報を持つことになります。
                   </p>
                   <p class="note">
-                    Performing an ICE restart is recommended when
-                    {{RTCPeerConnection/iceConnectionState}} transitions to
-                    {{RTCIceConnectionState/"failed"}}. An application may
-                    additionally choose to listen for the
-                    {{RTCPeerConnection/iceConnectionState}} transition to
-                    {{RTCIceConnectionState/"disconnected"}} and then use other
-                    sources of information (such as using
-                    {{RTCPeerConnection/getStats}} to measure if the number of
-                    bytes sent or received over the next couple of seconds
-                    increases) to determine whether an ICE restart is
-                    advisable.
+                    ICE の再起動は、 {{RTCPeerConnection/iceConnectionState}} が {{RTCIceConnectionState/"failed"}} に遷移したときに行うことが推奨されます。アプリケーションはさらに、 {{RTCPeerConnection/iceConnectionState}} が {{RTCIceConnectionState/"disconnected"}} に遷移するのを待ち、他の情報源を使用して（ {{RTCPeerConnection/getStats}} を使用して、今後数秒間に送受信されるバイト数が増加するかどうかを測定するなど）、 ICE 再起動が望ましいかどうかを判断することもできます。
                   </p>
                 </dd>
               </dl>
