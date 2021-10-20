@@ -630,8 +630,7 @@
             Offer/Answer Options
           </h4>
           <p>
-            These dictionaries describe the options that can be used to control
-            the offer/answer creation process.
+            これらのディクショナリには、オファー/アンサー作成プロセスを制御するために使用できるオプションが記載されています。
           </p>
           <div>
             <pre class="idl">dictionary RTCOfferAnswerOptions {};</pre>
@@ -659,7 +658,7 @@
                 </dt>
                 <dd>
                   <p>
-                    このディクショナリメンバーの値が <code>true</code> である場合、または関連する {{RTCPeerConnection}} オブジェクトの {{RTCPeerConnection/[[LoallIceCredentialsToReplace]]}} スロットが空でない場合、生成された記述は、現在の資格情報とは異なるICE資格情報を持つことになります（ {{RTCPeerConnection/currentLocalDescription}} 属性の SDP で確認できます）。生成された記述を適用すると、 [[RFC5245]] のセクション 9.1.1.1 で説明されているように、 ICE が再起動される。
+                    このディクショナリメンバーの値が <code>true</code> である場合、または関連する {{RTCPeerConnection}} オブジェクトの {{RTCPeerConnection/[[LocalIceCredentialsToReplace]]}} スロットが空でない場合、生成された記述は、現在の資格情報とは異なるICE資格情報を持つことになります（ {{RTCPeerConnection/currentLocalDescription}} 属性の SDP で確認できます）。生成された記述を適用すると、 [[RFC5245]] のセクション 9.1.1.1 で説明されているように、 ICE が再起動される。
                   </p>
                   <p>
                     このディクショナリメンバーの値が<code>false</code>で、関連する {{RTCPeerConnection}} オブジェクトの {{RTCPeerConnection/[[LocalIceCredentialsToReplace]]}} スロットが空のときかつ、 {{RTCPeerConnection/currentLocalDescription}} 属性に有効な ICE 認証情報がある場合、生成された Description は {{RTCPeerConnection/currentLocalDescription}} 属性からの現在の値と同じ ICE 認証情報を持つことになります。
