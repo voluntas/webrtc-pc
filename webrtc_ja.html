@@ -889,11 +889,8 @@
                     <dfn data-idl="">failed</dfn>
                   </td>
                   <td>
-                    The previous state doesn't apply and any
-                    {{RTCIceTransport}}s are in the
-                    {{RTCIceTransportState/"failed"}} state or any
-                    {{RTCDtlsTransport}}s are in the
-                    {{RTCDtlsTransportState/"failed"}} state.
+                    The previous state doesn't apply and any {{RTCIceTransport}}s are in the {{RTCIceTransportState/"failed"}} state or any {{RTCDtlsTransport}}s are in the {{RTCDtlsTransportState/"failed"}} state.
+                    前の状態が適用されず、任意の {{RTCIceTransport}} が {{RTCIceTransportState/"failed"}} 状態になっているか、任意の {{RTCDtlsTransport}} が {{RTCDtlsTransportState/"failed"}} 状態になっていることがあります。
                   </td>
                 </tr>
                 <tr>
@@ -901,9 +898,7 @@
                     <dfn data-idl="">disconnected</dfn>
                   </td>
                   <td>
-                    None of the previous states apply and any
-                    {{RTCIceTransport}}s are in the
-                    {{RTCIceTransportState/"disconnected"}} state.
+                    これまでのどの状態も適用されず、どの {{RTCIceTransportState/"disconnected"}} も {{RTCIceTransportState/"disconnected"}} 状態になっています。
                   </td>
                 </tr>
                 <tr>
@@ -912,14 +907,7 @@
                     <dfn data-idl="">new</dfn>
                   </td>
                   <td>
-                    None of the previous states apply and all
-                    {{RTCIceTransport}}s are in the
-                    {{RTCIceTransportState/"new"}} or
-                    {{RTCIceTransportState/"closed"}} state, and all
-                    {{RTCDtlsTransport}}s are in the
-                    {{RTCDtlsTransportState/"new"}} or
-                    {{RTCDtlsTransportState/"closed"}} state, or there are no
-                    transports.
+                    これまでの状態がいずれも適用されず、すべての {{RTCIceTransport}} が {{RTCIceTransportState/"new"}} または {{RTCIceTransportState/"closed"}} の状態にあり、すべての {{RTCDtlsTransport}} が {{RTCDtlsTransportState/"new"}} または {{RTCDtlsTransportState/"closed"}} の状態にあるか、またはトランスポートが存在しない状態にあります。
                   </td>
                 </tr>
                 <tr>
@@ -928,11 +916,8 @@
                     <dfn data-idl="">connecting</dfn>
                   </td>
                   <td>
-                    None of the previous states apply and any
-                    {{RTCIceTransport}} is in the
-                    {{RTCIceTransportState/"checking"}} state or any
-                    {{RTCDtlsTransport}} is in the
-                    {{RTCDtlsTransportState/"connecting"}} state.
+                    None of the previous states apply and any {{RTCIceTransport}} is in the {{RTCIceTransportState/"checking"}} state or any {{RTCDtlsTransport}} is in the {{RTCDtlsTransportState/"connecting"}} state.
+                    前述の状態がいずれも適用されておらず、任意の {{RTCIceTransportState/"checking"}} 状態、または任意の {{RTCDtlsTransportState/"connecting"}} 状態にある {{RTCIceTransport}。
                   </td>
                 </tr>
                 <tr>
@@ -941,14 +926,7 @@
                     <dfn data-idl="">connected</dfn>
                   </td>
                   <td>
-                    None of the previous states apply and all
-                    {{RTCIceTransport}}s are in the
-                    {{RTCIceTransportState/"connected"}},
-                    {{RTCIceTransportState/"completed"}} or
-                    {{RTCIceTransportState/"closed"}} state, and all
-                    {{RTCDtlsTransport}}s are in the
-                    {{RTCDtlsTransportState/"connected"}} or
-                    {{RTCDtlsTransportState/"closed"}} state.
+                    これまでの状態がいずれも適用されず、すべての {{RTCIceTransportState/"connected"}} 、 {{RTCIceTransportState/"completed"}} または {{RTCIceTransportState/"closed"}} の状態にあり、すべての {{RTCDtlsTransport}} が {{RTCDtlsTransportState/"connected"}} または {{RTCDtlsTransportState/"closed"}} の状態にあります。
                   </td>
                 </tr>
               </tbody>
