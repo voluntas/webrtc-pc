@@ -559,10 +559,7 @@
                     <dfn data-idl="">balanced</dfn>
                   </td>
                   <td>
-                    Gather ICE candidates for each media type in use (audio,
-                    video, and data). If the remote endpoint is not
-                    bundle-aware, negotiate only one audio and video track on
-                    separate transports.
+                    使用するメディアタイプ（オーディオ、ビデオ、データ）ごとに ICE の候補を集める。リモートエンドポイントがバンドルを意識していない場合は、オーディオとビデオのトラックを別々のトランスポートで1つだけネゴシエートする。
                   </td>
                 </tr>
                 <tr>
@@ -571,9 +568,7 @@
                     <dfn data-idl="">max-compat</dfn>
                   </td>
                   <td>
-                    Gather ICE candidates for each track. If the remote
-                    endpoint is not bundle-aware, negotiate all media tracks on
-                    separate transports.
+                    各トラックの ICE 候補を集める。リモートエンドポイントがバンドルを認識していない場合、すべてのメディアトラックを別々のトランスポートでネゴシエートする。
                   </td>
                 </tr>
                 <tr>
@@ -582,9 +577,7 @@
                     <dfn data-idl="">max-bundle</dfn>
                   </td>
                   <td>
-                    Gather ICE candidates for only one track. If the remote
-                    endpoint is not bundle-aware, negotiate only one media
-                    track.
+                    1つのトラックのみの ICE 候補を集める。リモートエンドポイントがバンドルを認識していない場合、1つのメディアトラックのみをネゴシエートする。
                   </td>
                 </tr>
               </tbody>
@@ -672,9 +665,7 @@
           </div>
           <div>
             <p>
-              The <dfn>RTCAnswerOptions</dfn> dictionary describe options
-              specific to session description of type {{RTCSdpType/"answer"}}
-              (none in this version of the specification).
+              <dfn>RTCAnswerOptions</dfn> ディクショナリは、 {{RTCSdpType/"answer"}} タイプのセッション記述に固有のオプションを記述する。(このバージョンの仕様ではなし)。
             </p>
             <pre class="idl">
             dictionary RTCAnswerOptions : RTCOfferAnswerOptions {};</pre>
