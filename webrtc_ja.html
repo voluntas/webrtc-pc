@@ -17342,49 +17342,42 @@ interface RTCErrorEvent : Event {
       </section>
       <section>
         <h2>
+            <!--
           Persistent information exposed by WebRTC
+            -->
+            WebRTC で公開される永続的な情報
         </h2>
         <p>
-          As described above, the list of IP addresses exposed by the WebRTC
-          API can be used as a persistent cross-origin state.
+            <!--
+          As described above, the list of IP addresses exposed by the WebRTC API can be used as a persistent cross-origin state.
+            -->
+            上述したように、 WebRTC API で公開されている IP アドレスのリストは、永続的なクロスオリジンの状態として使用することができます。
         </p>
         <p>
-          Beyond IP addresses, the WebRTC API exposes information about the
-          underlying media system via the
-          {{RTCRtpSender}}.{{RTCRtpSender/getCapabilities}} and
-          {{RTCRtpReceiver}}.{{RTCRtpReceiver/getCapabilities}} methods,
-          including detailed and ordered information about the codecs that the
-          system is able to produce and consume. A subset of that information
-          is likely to be represented in the SDP session descriptions
-          generated, exposed and transmitted during <a href=
-          "#session-negotiation-model">session negotiation</a>. That
-          information is in most cases persistent across time and origins, and
-          increases the fingerprint surface of a given device.
+            <!--
+          Beyond IP addresses, the WebRTC API exposes information about the underlying media system via the {{RTCRtpSender}}.{{RTCRtpSender/getCapabilities}} and {{RTCRtpReceiver}}.{{RTCRtpReceiver/getCapabilities}} methods, including detailed and ordered information about the codecs that the system is able to produce and consume. A subset of that information is likely to be represented in the SDP session descriptions generated, exposed and transmitted during <a href= "#session-negotiation-model">session negotiation</a>. That information is in most cases persistent across time and origins, and increases the fingerprint surface of a given device.
+            -->
+          IP アドレス以外にも、 WebRTC API は、 {{RTCRtpSender}}.{{RTCRtpSender/getCapabilities}} および {{RTCRtpReceiver}}.{{RTCRtpReceiver/getCapabilities}} メソッドを介して、基礎となるメディアシステムに関する情報を公開しています。これには、システムが生成および消費できるコーデックに関する詳細かつ順序付けられた情報が含まれます。そのような情報の一部は、<a href= "#session-negotiation-model">セッションネゴシエーション</a>中に生成、公開、送信される SDP セッション記述で表現される可能性があります。この情報は、ほとんどの場合、時間や起源を超えて永続的であり、特定のデバイスの指紋の表面を増やします。
         </p>
         <p>
-          When establishing DTLS connections, the WebRTC API can generate
-          certificates that can be persisted by the application (e.g. in
-          IndexedDB). These certificates are not shared across origins, and get
-          cleared when persistent storage is cleared for the origin.
+        <!--
+          When establishing DTLS connections, the WebRTC API can generate certificates that can be persisted by the application (e.g. in IndexedDB). These certificates are not shared across origins, and get cleared when persistent storage is cleared for the origin.
+        -->
+          DTLS 接続を確立する際、 WebRTC API はアプリケーションが永続化できる証明書を生成できます（例： IndexedDB ）。これらの証明書は、オリジン間で共有されることはなく、オリジンの永続的なストレージがクリアされるとクリアされます。
         </p>
       </section>
       <section>
         <h2>
+        <!--
           Setting SDP from remote endpoints
+        -->
+          リモートエンドポイントからのSDP設定
         </h2>
         <p>
-          {{RTCPeerConnection/setRemoteDescription}} guards against malformed
-          and invalid SDP by throwing exceptions, but makes no attempt to guard
-          against SDP that might be unexpected by the application. Setting the
-          remote description can cause significant resources to be allocated
-          (including image buffers and network ports), media to start flowing
-          (which may have privacy and bandwidth implications) among other
-          things. An application that does not guard against malicious SDP
-          could be at risk of resource deprivation, unintentionally allowing
-          incoming media or at risk of not having certain events fire like
-          {{RTCPeerConnection/ontrack}} if the other endpoint does not
-          negotiate sending. Applications need to be on guard against
-          malevolent SDP.
+            <!--
+          {{RTCPeerConnection/setRemoteDescription}} guards against malformed and invalid SDP by throwing exceptions, but makes no attempt to guard against SDP that might be unexpected by the application. Setting the remote description can cause significant resources to be allocated (including image buffers and network ports), media to start flowing (which may have privacy and bandwidth implications) among other things. An application that does not guard against malicious SDP could be at risk of resource deprivation, unintentionally allowing incoming media or at risk of not having certain events fire like {{RTCPeerConnection/ontrack}} if the other endpoint does not negotiate sending. Applications need to be on guard against malevolent SDP.
+            -->
+          {{RTCPeerConnection/setRemoteDescription}} は、例外をスローすることで、不正な SDP や無効な SDP をガードしますが、アプリケーションが予期しない SDP をガードしようとはしません。リモート記述を設定すると、重要なリソースが割り当てられたり(画像バッファやネットワークポートなど)、メディアが流れ始めたり(プライバシーや帯域幅に影響する可能性があります)することがあります。悪意のある SDP を防止していないアプリケーションは、リソースを奪われたり、意図せずに受信メディアを許可したり、相手のエンドポイントが送信をネゴシエートしない場合に {{RTCPeerConnection/ontrack}} などの特定のイベントが発生しないリスクがあります。アプリケーションは、悪意のある SDP に対して警戒する必要があります。
         </p>
       </section>
     </section>
