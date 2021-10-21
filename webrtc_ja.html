@@ -244,14 +244,7 @@
         </h3>
         <p data-tests="RTCPeerConnection-remote-track-mute.https.html">
           <!--
-          An {{RTCPeerConnection}} instance allows an application to establish
-          peer-to-peer communications with another {{RTCPeerConnection}}
-          instance in another browser, or to another endpoint implementing the
-          required protocols. Communications are coordinated by the exchange of
-          control messages (called a signaling protocol) over a signaling
-          channel which is provided by unspecified means, but generally by a
-          script in the page via the server, e.g. using <a data-cite="?html/web-sockets.html#websocket">Web
-          Sockets</a> or <code>XMLHttpRequest</code> [[?xhr]].
+          An {{RTCPeerConnection}} instance allows an application to establish peer-to-peer communications with another {{RTCPeerConnection}} instance in another browser, or to another endpoint implementing the required protocols. Communications are coordinated by the exchange of control messages (called a signaling protocol) over a signaling channel which is provided by unspecified means, but generally by a script in the page via the server, e.g. using <a data-cite="?html/web-sockets.html#websocket">Web Sockets</a> or <code>XMLHttpRequest</code> [[?xhr]].
           -->
           {{RTCPeerConnection}}インスタンスは、アプリケーションが別のブラウザの別の{{RTCPeerConnection}}インスタンスや、必要なプロトコルを実装している別のエンドポイントとの間でピアツーピア通信を確立できるようにします。通信は、不特定の手段で提供されるシグナリングチャネル上での制御メッセージ（シグナリングプロトコルと呼ばれる）の交換によって調整されますが、一般的にはサーバー経由でページ内のスクリプトによって行われます。例えば、<a data-cite="?html/web-sockets.html#websocket">Web Sockets</a>や<code>XMLHttpRequest</code> [[?xhr]]を使用します。
         </p>
@@ -10065,26 +10058,23 @@ interface RTCRtpReceiver {
                   </li>
                   <li data-tests="RTCRtpReceiver-getParameters.html">
                     <p>
-                      {{RTCRtpParameters/codecs}} is set to the value of the
-                      {{RTCRtpReceiver/[[ReceiveCodecs]]}} internal slot.
+                    <!--
+                      {{RTCRtpParameters/codecs}} is set to the value of the {{RTCRtpReceiver/[[ReceiveCodecs]]}} internal slot.
+                    -->
+                      {{RTCRtpParameters/codecs}} には、{{RTCRtpReceiver/[[ReceiveCodecs]]}} 内部スロットの値が設定されます。
                     </p>
                     <div class="note">
-                      Both the local and remote description may affect this
-                      list of codecs. For example, if three codecs are offered,
-                      the receiver will be prepared to receive each of them and
-                      will return them all from {{getParameters}}. But if the
-                      remote endpoint only answers with two, the absent codec
-                      will no longer be returned by {{getParameters}} as the
-                      receiver no longer needs to be prepared to receive it.
+                    <!--
+                      Both the local and remote description may affect this list of codecs. For example, if three codecs are offered, the receiver will be prepared to receive each of them and will return them all from {{getParameters}}. But if the remote endpoint only answers with two, the absent codec will no longer be returned by {{getParameters}} as the receiver no longer needs to be prepared to receive it.
+                    -->
+                      ローカルとリモートの両方の記述が、このコーデックのリストに影響を与える可能性があります。例えば、3つのコーデックが提供された場合、受信者はそれぞれのコーデックを受信する準備をし、{{getParameters}} からすべてのコーデックを返します。しかし、リモートエンドポイントが 2 つしか答えなかった場合、不在のコーデックは、受信者が受信の準備をする必要がないため、{{getParameters}} から返されなくなります。
                     </div>
                   </li>
                   <li data-tests="RTCRtpReceiver-getParameters.html">
-                  {{RTCRtpParameters/rtcp}}.{{RTCRtcpParameters/reducedSize}}
-                  is set to <code>true</code> if the receiver is currently
-                  prepared to receive reduced-size RTCP packets, and
-                  <code>false</code> otherwise.
-                  {{RTCRtpParameters/rtcp}}.{{RTCRtcpParameters/cname}} is left
-                  out.
+                <!--
+                  {{RTCRtpParameters/rtcp}}.{{RTCRtcpParameters/reducedSize}} is set to <code>true</code> if the receiver is currently prepared to receive reduced-size RTCP packets, and <code>false</code> otherwise.  {{RTCRtpParameters/rtcp}}.{{RTCRtcpParameters/cname}} is left out.
+                -->
+                  {{RTCRtpParameters/rtcp}}.{{RTCRtcpParameters/reducedSize}} は、受信機が縮小されたサイズの RTCP パケットを受信する準備が現在できている場合は <code>true</code> に設定され、そうでない場合は <code>false</code> に設定されます。{{RTCRtpParameters/rtcp}}.{{RTCRtcpParameters/cname}} は省略されます。
                   </li>
                 </ul>
               </dd>
