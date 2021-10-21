@@ -17331,7 +17331,10 @@ interface RTCErrorEvent : Event {
       </section>
       <section>
         <h2>
+        <!--
           Impact on local network
+        -->
+          ローカルネットワークへの影響
         </h2>
         <p>
         <!--
@@ -17340,23 +17343,35 @@ interface RTCErrorEvent : Event {
           ブラウザは、信頼されたネットワーク環境（ファイアウォールの内側）で実行されるアクティブなプラットフォームであるため、ブラウザがローカルネットワーク上の他の要素に与えるダメージを制限することが重要であり、信頼されていない参加者による傍受、操作、変更からデータを保護することが重要です。
         </p>
         <p>
+        <!--
           Mitigations include:
+        -->
+          緩和策は以下の通りです。
         </p>
         <ul>
-          <li>A user agent will always request permission from the
-          correspondent user agent to communicate using ICE. This ensures that
-          the user agent can only send to partners who you have shared
-          credentials with.
+          <li>
+            <!--
+              A user agent will always request permission from the correspondent user agent to communicate using ICE. This ensures that the user agent can only send to partners who you have shared credentials with.
+            -->
+            ユーザーエージェントは、ICE を使用して通信する際には、必ず対応するユーザーエージェントに許可を求めます。これにより、ユーザーエージェントは、認証情報を共有している相手にのみ送信できるようになります。
           </li>
-          <li>A user agent will always request ongoing permission to continue
-          sending using ICE continued consent. This enables a receiver to
-          withdraw consent to receive.
+          <li>
+            <!--
+              A user agent will always request ongoing permission to continue sending using ICE continued consent. This enables a receiver to withdraw consent to receive.
+            -->
+            ユーザーエージェントは、ICE の継続的な同意を用いて、送信を継続するための継続的な許可を常に求める。これにより、受信者は受信への同意を撤回することができる。
           </li>
-          <li>A user agent will always encrypt data, with strong per-session
-          keying (DTLS-SRTP).
+          <li>
+            <!--
+              A user agent will always encrypt data, with strong per-session keying (DTLS-SRTP).
+            -->
+            ユーザーエージェントは常にデータを暗号化し、セッションごとに強力なキーイングを行います（DTLS-SRTP）。
           </li>
-          <li>A user agent will always use congestion control. This ensures
-          that WebRTC cannot be used to flood the network.
+          <li>
+            <!--
+              A user agent will always use congestion control. This ensures that WebRTC cannot be used to flood the network.
+            -->
+            ユーザーエージェントは、常に輻輳制御を使用します。これにより、WebRTC がネットワークのフラッディングに使用されることはありません。
           </li>
         </ul>
         <p>
