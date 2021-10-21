@@ -53,7 +53,7 @@
       <!--
         The API is based on preliminary work done in the WHATWG.
       -->          
-        この API は、 WHATWG で行われた予備的な作業に基づいています。
+        この API は、WHATWG で行われた予備的な作業に基づいています。
       </p>
       <p>
         この仕様は機能的に完成しており、これ以上の実質的な変更はなく安定していることが期待されています。<a href="https://www.w3.org/TR/2019/CR-webrtc-20191213/">前回の Candidate Recommendation</a> 以降、以下のような実質的な変更が仕様にもたらされました。
@@ -63,8 +63,7 @@
         </li>
         <li>複数の DTLS 証明書を設定する機能が廃止されました
         </li>
-        <li>
-          <code>voiceActivityFlag</code> は、実装されていないため、リスクがあると判断されました
+        <li><code>voiceActivityFlag</code> は、実装されていないため、リスクがあると判断されました
         </li>
         <li><code>PeerConnection</code> を閉じるときのステートマシンが明確になりました。
         </li>
@@ -158,7 +157,7 @@
       <!--
         The terms <dfn class=fixme data-cite="HTML/structured-data.html#serializable-objects">serializable objects</dfn>, [= serialization steps =], and [= deserialization steps =] are defined in [[!HTML]].
       -->
-       <dfn class=fixme data-cite="HTML/structured-data.html#serializable-objects">serializable objects</dfn> 、 [= serialization steps= ] 、 [= deserialization steps =]という用語は [[! HTML]] で定義されています。
+       <dfn class=fixme data-cite="HTML/structured-data.html#serializable-objects">serializable objects</dfn>、[= serialization steps= ]、[= deserialization steps =] という用語は [[! HTML]] で定義されています。
       </p>
       <p>
       <!--
@@ -200,7 +199,7 @@
       <!--
         When referring to exceptions, the terms [= exception/throw =] and [= exception/created =] are defined in [[!WEBIDL]].
       -->
-       例外に言及する場合、 [= exception/throw =] および [= exception/created =] という用語は [[! WEBIDL]] で定義されています。
+       例外に言及する場合、[= exception/throw =] および [= exception/created =] という用語は [[! WEBIDL]] で定義されています。
       </p>
       <p>
       <!--
@@ -224,13 +223,13 @@
       <!--
         The terms <dfn>bundle</dfn>, <dfn>bundle-only</dfn> and <dfn>bundle-policy</dfn> are defined in [[!RFC8829]].
       -->
-        <dfn>bundle</dfn> 、 <dfn>bundle-only</dfn> 、 <dfn>bundle-policy</dfn> という用語は、 [[!RFC8829]] で定義されています。
+        <dfn>bundle</dfn>、<dfn>bundle-only</dfn>、<dfn>bundle-policy</dfn> という用語は、[[!RFC8829]] で定義されています。
       </p>
       <p>
       <!--
         The <dfn data-cite= "WebCryptoAPI/#dfn-AlgorithmIdentifier">AlgorithmIdentifier</dfn> is defined in [[!WebCryptoAPI]].
       -->
-        <dfn data-cite= "WebCryptoAPI/#dfn-AlgorithmIdentifier">AlgorithmIdentifier</dfn> は、 [[!WebCryptoAPI]] に定義されています。
+        <dfn data-cite= "WebCryptoAPI/#dfn-AlgorithmIdentifier">AlgorithmIdentifier</dfn> は、[[!WebCryptoAPI]] に定義されています。
       </p>
       <p class="note">
       <!--
@@ -344,7 +343,7 @@
                   <!--
                     Indicates which <a data-lt="RTCRtcpMuxPolicy">rtcp-mux policy</a> to use when gathering ICE candidates.
                   -->
-                    ICE 候補を集める際にどの <a data-lt="RTCRtcpMuxPolicy">rtcp-mux policy</a> を使用するかを示します。
+                    ICE 候補を集める際に、どの <a data-lt="RTCRtcpMuxPolicy">rtcp-mux policy</a> を使用するかを示します。
                   </p>
                 </dd>
                 <dt data-tests=
@@ -11003,18 +11002,10 @@ interface RTCRtpTransceiver {
             method of the {{RTCRtpSender}} object.
           </p>
           <p class="needs-test">
-            The {{RTCPeerConnection/addTransceiver}} method establishes the
-            <dfn>simulcast envelope</dfn> which includes the maximum number of
-            simulcast streams that can be sent, as well as the ordering of the
-            {{RTCRtpSendParameters/encodings}}. While characteristics of
-            individual simulcast streams can be modified using the
-            {{RTCRtpSender/setParameters}} method, the [= simulcast envelope =]
-            cannot be changed. One of the implications of this model is that
-            the {{RTCPeerConnection/addTrack()}} method cannot provide
-            simulcast functionality since it does not take
-            {{RTCRtpTransceiverInit/sendEncodings}} as an argument, and
-            therefore cannot configure an {{RTCRtpTransceiver}} to send
-            simulcast.
+          <!--
+            The {{RTCPeerConnection/addTransceiver}} method establishes the <dfn>simulcast envelope</dfn> which includes the maximum number of simulcast streams that can be sent, as well as the ordering of the {{RTCRtpSendParameters/encodings}}. While characteristics of individual simulcast streams can be modified using the {{RTCRtpSender/setParameters}} method, the [= simulcast envelope =] cannot be changed. One of the implications of this model is that the {{RTCPeerConnection/addTrack()}} method cannot provide simulcast functionality since it does not take {{RTCRtpTransceiverInit/sendEncodings}} as an argument, and therefore cannot configure an {{RTCRtpTransceiver}} to send simulcast.
+          -->
+          {{RTCPeerConnection/addTransceiver}} メソッドは、送信可能なサイマルキャストストリームの最大数や、{{RTCRtpSendParameters/encodings}} の順序を含む <dfn>simulcast envelope</dfn> を確立します。個々のサイマルキャストストリームの特性は {{RTCRtpSender/setParameters}} メソッドを使って変更できますが、[= simulcast envelope =] は変更できません。このモデルの意味するところは、{{RTCRtpTransceiverInit/sendEncodings}} を引数として取らないため、{{RTCRtpTransceiver}} がサイマルキャストを送信するように設定することができないので、{{RCPeerConnection/addTrack()}} メソッドがサイマルキャスト機能を提供できないことです。
           </p>
           <p class="needs-test">
             Another implication is that the answerer cannot set the [=
