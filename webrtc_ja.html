@@ -470,26 +470,25 @@
               <dl data-link-for="RTCIceServer" data-dfn-for="RTCIceServer"
               class="dictionary-members">
                 <dt data-tests="RTCConfiguration-iceServers.html">
-                  <dfn data-idl="">urls</dfn> of type <span class=
-                  "idlMemberType">(DOMString or
-                  sequence&lt;DOMString&gt;)</span>, required
+                  <dfn data-idl="">urls</dfn> of type <span class= "idlMemberType">(DOMString or sequence&lt;DOMString&gt;)</span>, required
                 </dt>
                 <dd>
                   <p>
-                    STUN or TURN URI(s) as defined in [[!RFC7064]] and
-                    [[!RFC7065]] or other URI types.
+                  <!--
+                    STUN or TURN URI(s) as defined in [[!RFC7064]] and [[!RFC7065]] or other URI types.
+                  -->
+                    [[!RFC7064]] および [[!RFC7065]] で定義されている STUN または TURN の URI(s)、またはその他の URI タイプ。
                   </p>
                 </dd>
                 <dt data-tests="RTCConfiguration-iceServers.html">
-                  <dfn data-idl="">username</dfn> of type <span class=
-                  "idlMemberType">DOMString</span>
+                  <dfn data-idl="">username</dfn> of type <span class= "idlMemberType">DOMString</span>
                 </dt>
                 <dd>
                   <p>
-                    If this {{RTCIceServer}} object represents a TURN server,
-                    and {{credentialType}} is
-                    {{RTCIceCredentialType/"password"}}, then this attribute
-                    specifies the username to use with that TURN server.
+                  <!--
+                    If this {{RTCIceServer}} object represents a TURN server, and {{credentialType}} is {{RTCIceCredentialType/"password"}}, then this attribute specifies the username to use with that TURN server.
+                  -->
+                    この {{RTCIceServer}} オブジェクトが TURN サーバーを表し、{{credentialType}} が {{RTCIceCredentialType/"password"}} の場合、この属性は、その TURN サーバーで使用するユーザー名を指定します。
                   </p>
                 </dd>
                 <dt data-tests="RTCConfiguration-iceServers.html">
@@ -497,39 +496,43 @@
                 </dt>
                 <dd>
                   <p>
-                    If this {{RTCIceServer}} object represents a TURN server,
-                    then this attribute specifies the credential to use with
-                    that TURN server.
+                  <!--
+                    If this {{RTCIceServer}} object represents a TURN server, then this attribute specifies the credential to use with that TURN server.
+                  -->
+                    この {{RTCIceServer}} オブジェクトが TURN サーバーを表す場合、この属性はその TURN サーバーで使用するクレデンシャルを指定します。
                   </p>
                   <p>
-                    If {{credentialType}} is
-                    {{RTCIceCredentialType/"password"}}, {{credential}}
-                    represents a long-term authentication password, as
-                    described in [[!RFC5389]], Section 10.2.
+                  <!--
+                    If {{credentialType}} is {{RTCIceCredentialType/"password"}}, {{credential}} represents a long-term authentication password, as described in [[!RFC5389]], Section 10.2.
+                  -->
+                    {{credentialType}} が {{RTCIceCredentialType/"password"}} の場合、{{credential}} は [[!RFC5389]] の 10.2 項に記載されている長期認証用パスワードを表します。
                   </p>
                   <p class="note">
-                    To support additional values of {{credentialType}},
-                    {{credential}} may evolve in future as a union.
+                  <!--
+                    To support additional values of {{credentialType}}, {{credential}} may evolve in future as a union.
+                  -->
+                  {{credentialType}}の追加の値をサポートするために、{{credential}} は将来的にユニオンとして進化する可能性があります。
                   </p>
                 </dd>
                 <dt data-tests="RTCConfiguration-iceServers.html">
-                  <dfn data-idl="">credentialType</dfn> of type <span class=
-                  "idlMemberType">{{RTCIceCredentialType}}</span>, defaulting
-                  to {{RTCIceCredentialType/"password"}}
+                  <dfn data-idl="">credentialType</dfn> of type <span class= "idlMemberType">{{RTCIceCredentialType}}</span>, defaulting to {{RTCIceCredentialType/"password"}}
                 </dt>
                 <dd>
                   <p>
-                    If this {{RTCIceServer}} object represents a TURN server,
-                    then this attribute specifies how <var>credential</var>
-                    should be used when that TURN server requests
-                    authorization.
+                  <!--
+                    If this {{RTCIceServer}} object represents a TURN server, then this attribute specifies how <var>credential</var> should be used when that TURN server requests authorization.
+                  -->
+                    この {{RTCIceServer}} オブジェクトが TURN サーバーを表している場合、この属性は、その TURN サーバーが認証を要求する際に、<var>credential</var> がどのように使用されるべきかを指定します。
                   </p>
                 </dd>
               </dl>
             </section>
           </div>
           <p>
+          <!--
             An example array of {{RTCIceServer}} objects is:
+          -->
+            {{RTCIceServer}} オブジェクトの配列例:
           </p>
           <pre class="example highlight">
 [
