@@ -11005,7 +11005,7 @@ interface RTCRtpTransceiver {
           <!--
             The {{RTCPeerConnection/addTransceiver}} method establishes the <dfn>simulcast envelope</dfn> which includes the maximum number of simulcast streams that can be sent, as well as the ordering of the {{RTCRtpSendParameters/encodings}}. While characteristics of individual simulcast streams can be modified using the {{RTCRtpSender/setParameters}} method, the [= simulcast envelope =] cannot be changed. One of the implications of this model is that the {{RTCPeerConnection/addTrack()}} method cannot provide simulcast functionality since it does not take {{RTCRtpTransceiverInit/sendEncodings}} as an argument, and therefore cannot configure an {{RTCRtpTransceiver}} to send simulcast.
           -->
-          {{RTCPeerConnection/addTransceiver}} メソッドは、送信可能なサイマルキャストストリームの最大数や、{{RTCRtpSendParameters/encodings}} の順序を含む <dfn>simulcast envelope</dfn> を確立します。個々のサイマルキャストストリームの特性は {{RTCRtpSender/setParameters}} メソッドを使って変更できますが、[= simulcast envelope =] は変更できません。このモデルの意味するところは、{{RTCRtpTransceiverInit/sendEncodings}} を引数として取らないため、{{RTCRtpTransceiver}} がサイマルキャストを送信するように設定することができないので、{{RCPeerConnection/addTrack()}} メソッドがサイマルキャスト機能を提供できないことです。
+          {{RTCPeerConnection/addTransceiver}} メソッドは、送信可能なサイマルキャストストリームの最大数や、{{RTCRtpSendParameters/encodings}} の順序を含む <dfn>simulcast envelope</dfn> を確立します。個々のサイマルキャストストリームの特性は {{RTCRtpSender/setParameters}} メソッドを使って変更できますが、[= simulcast envelope =] は変更できません。このモデルの意味するところは、{{RTCRtpTransceiverInit/sendEncodings}} を引数として取らないため、{{RTCRtpTransceiver}} がサイマルキャストを送信するように設定することができないので、{{RTCPeerConnection/addTrack()}} メソッドがサイマルキャスト機能を提供できないことです。
           </p>
           <p class="needs-test">
           <!--
