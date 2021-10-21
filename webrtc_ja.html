@@ -3494,73 +3494,47 @@ interface RTCPeerConnection : EventTarget  {
                 </dt>
                 <dd>
                   <p>
-                    The {{createOffer}} method generates a blob of SDP that
-                    contains an RFC 3264 offer with the supported
-                    configurations for the session, including descriptions of
-                    the local {{MediaStreamTrack}}s attached to this
-                    {{RTCPeerConnection}}, the codec/RTP/RTCP capabilities
-                    supported by this implementation, and parameters of the [=
-                    ICE agent =] and the DTLS connection. The
-                    <var>options</var> parameter may be supplied to provide
-                    additional control over the offer generated.
+                  <!--
+                    The {{createOffer}} method generates a blob of SDP that contains an RFC 3264 offer with the supported configurations for the session, including descriptions of the local {{MediaStreamTrack}}s attached to this {{RTCPeerConnection}}, the codec/RTP/RTCP capabilities supported by this implementation, and parameters of the [= ICE agent =] and the DTLS connection. The <var>options</var> parameter may be supplied to provide additional control over the offer generated.
+                  -->
+                    {{createOffer}} メソッドは、この {{RTCPeerConnection}} に接続されているローカルの {{MediaStreamTrack}} の説明、この実装でサポートされているコーデック/RTP/RTCP 機能、[= ICE agent =] と DTLS 接続のパラメータなど、セッションでサポートされている設定を含む RFC 3264 オファーを含む SDP の blob を生成します。生成されたオファーをさらに制御するために、<var>options</var> パラメータを指定することができます。
                   </p>
                   <p>
-                    If a system has limited resources (e.g. a finite number of
-                    decoders), {{createOffer}} needs to return an offer that
-                    reflects the current state of the system, so that
-                    {{setLocalDescription}} will succeed when it attempts to
-                    acquire those resources. The session descriptions MUST
-                    remain usable by {{setLocalDescription}} without causing an
-                    error until at least the end of the [= fulfillment =]
-                    callback of the returned promise.
+                  <!--
+                    If a system has limited resources (e.g. a finite number of decoders), {{createOffer}} needs to return an offer that reflects the current state of the system, so that {{setLocalDescription}} will succeed when it attempts to acquire those resources. The session descriptions MUST remain usable by {{setLocalDescription}} without causing an error until at least the end of the [= fulfillment =] callback of the returned promise.
+                  -->
+                    システムのリソースが限られている場合（例：デコーダの数が限られている）、{{createOffer}} はシステムの現在の状態を反映したオファーを返す必要があり、{{setLocalDescription}} がそれらのリソースを取得しようとするときに成功するようにします。セッション記述は、少なくとも返されたプロミスの [= fulfillment =] コールバックが終了するまで、エラーを起こすことなく {{setLocalDescription}} で使用可能なままでなければなりません (MUST)。
                   </p>
                   <p data-tests=
                   "RTCRtpTransceiver-stop.html,protocol/jsep-initial-offer.https.html">
-                    Creating the SDP MUST follow the appropriate process for
-                    generating an offer described in [[!RFC8829]], except the user
-                    agent MUST treat a {{RTCRtpTransceiver/stopping}}
-                    transceiver as {{RTCRtpTransceiver/stopped}} for the
-                    purposes of RFC8829 in this case.
+                  <!--
+                    Creating the SDP MUST follow the appropriate process for generating an offer described in [[!RFC8829]], except the user agent MUST treat a {{RTCRtpTransceiver/stopping}} transceiver as {{RTCRtpTransceiver/stopped}} for the purposes of RFC8829 in this case.
+                  -->
+                    SDP の作成は、[[!RFC8829]] に記載されているオファーを生成するための適切なプロセスに従わなければならない(MUST)。ただし、ユーザーエージェントはこの場合、RFC8829 の目的のために {{RTCRtpTransceiver/stopping}} トランシーバーを {{RTCRtpTransceiver/stopped}} として扱わなければならない(MUST)。
                   </p>
                   <p>
-                    As an offer, the generated SDP will contain the full set of
-                    codec/RTP/RTCP capabilities supported or preferred by the
-                    session (as opposed to an answer, which will include only a
-                    specific negotiated subset to use). In the event
-                    {{createOffer}} is called after the session is established,
-                    {{createOffer}} will generate an offer that is compatible
-                    with the current session, incorporating any changes that
-                    have been made to the session since the last complete
-                    offer-answer exchange, such as addition or removal of
-                    tracks. If no changes have been made, the offer will
-                    include the capabilities of the current local description
-                    as well as any additional capabilities that could be
-                    negotiated in an updated offer.
+                  <!--
+                    As an offer, the generated SDP will contain the full set of codec/RTP/RTCP capabilities supported or preferred by the session (as opposed to an answer, which will include only a specific negotiated subset to use). In the event {{createOffer}} is called after the session is established, {{createOffer}} will generate an offer that is compatible with the current session, incorporating any changes that have been made to the session since the last complete offer-answer exchange, such as addition or removal of tracks. If no changes have been made, the offer will include the capabilities of the current local description as well as any additional capabilities that could be negotiated in an updated offer.
+                  -->
+                    オファーの場合、生成された SDP には、セッションでサポートまたは優先される コーデック/RTP/RTCP 機能のフルセットが含まれる(アンサーの場合は、使 用する特定のネゴシエート済みサブセットのみが含まれる)が、これとは対照的である。セッションが確立された後に {{createOffer}} が呼び出された場合、{{createOffer}} は現在のセッションと互換性のあるオファーを生成し、最後の完全なオファーとアンサーの交換以降に行われた変更（トラックの追加や削除など）を反映します。変更がない場合、オファーには現在のローカル記述の機能に加えて、更新されたオファーで交渉可能な追加機能が含まれます。
                   </p>
                   <p>
-                    The generated SDP will also contain the [= ICE agent =]'s
-                    {{RTCIceParameters/usernameFragment}},
-                    {{RTCIceParameters/password}} and ICE options (as defined
-                    in [[RFC5245]], Section 14) and may also contain any local
-                    candidates that have been gathered by the agent.
+                  <!--
+                    The generated SDP will also contain the [= ICE agent =]'s {{RTCIceParameters/usernameFragment}}, {{RTCIceParameters/password}} and ICE options (as defined in [[RFC5245]], Section 14) and may also contain any local candidates that have been gathered by the agent.
+                  -->
+                    生成された SDP には、[= ICE agent =] の {{RTCIceParameters/usernameFragment}}、{{RTCIceParameters/password}、ICE オプション（[[RFC5245]]のセクション 14 で定義されているもの）も含まれており、エージェントが収集したローカル候補も含まれている可能性があります。
                   </p>
                   <p>
-                    The {{RTCConfiguration/certificates}} value in
-                    <var>configuration</var> for the {{RTCPeerConnection}}
-                    provides the certificates configured by the application for
-                    the {{RTCPeerConnection}}. These certificates, along with
-                    any default certificates are used to produce a set of
-                    certificate fingerprints. These certificate fingerprints
-                    are used in the construction of SDP.
+                  <!--
+                    The {{RTCConfiguration/certificates}} value in <var>configuration</var> for the {{RTCPeerConnection}} provides the certificates configured by the application for the {{RTCPeerConnection}}. These certificates, along with any default certificates are used to produce a set of certificate fingerprints. These certificate fingerprints are used in the construction of SDP.
+                  -->
+                  {{RTCPeerConnection}} の <var>configuration</var> にある {{RTCConfiguration/certificates}} の値は、{{RTCPeerConnection}} のためにアプリケーションが構成した証明書を提供します。これらの証明書は、デフォルトの証明書とともに、一連の証明書フィンガープリントを生成するために使用されます。これらの証明書フィンガープリントは、SDP の構築に使用されます。
                   </p>
                   <p class="fingerprint">
-                    The process of generating an SDP exposes a subset of the
-                    media capabilities of the underlying system, which provides
-                    generally persistent cross-origin information on the
-                    device. It thus increases the fingerprinting surface of the
-                    application. In privacy-sensitive contexts, browsers can
-                    consider mitigations such as generating SDP matching only a
-                    common subset of the capabilities.
+                  <!--
+                    The process of generating an SDP exposes a subset of the media capabilities of the underlying system, which provides generally persistent cross-origin information on the device. It thus increases the fingerprinting surface of the application. In privacy-sensitive contexts, browsers can consider mitigations such as generating SDP matching only a common subset of the capabilities.
+                  -->
+                    SDP を生成するプロセスでは、基礎となるシステムのメディア機能のサブセットが公開され、デバイス上の一般的に永続的なクロスオリジン情報が提供されます。そのため、アプリケーションのフィンガープリントの対象が増えることになる。プライバシーが重視されるコンテキストでは、ブラウザは、能力の共通サブセットのみに一致する SDP を生成するなどの緩和策を検討することができます。
                   </p>
                   <p>
                     When the method is called, the user agent MUST run the
