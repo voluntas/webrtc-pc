@@ -360,38 +360,40 @@
                     {{RTCPeerConnection}} が認証に使用する証明書のセットです。
                   </p>
                   <p>
-                    Valid values for this parameter are created through calls
-                    to the {{RTCPeerConnection/generateCertificate()}}
-                    function.
+                  <!--
+                    Valid values for this parameter are created through calls to the {{RTCPeerConnection/generateCertificate()}} function.
+                  -->
+                    このパラメータの有効な値は、{{RTCPeerConnection/generateCertificate()}} 関数の呼び出しによって作成されます。
                   </p>
                   <p>
-                    Although any given DTLS connection will use only one
-                    certificate, this attribute allows the caller to provide
-                    multiple certificates that support different algorithms.
-                    The final certificate will be selected based on the DTLS
-                    handshake, which establishes which certificates are
-                    allowed. The {{RTCPeerConnection}} implementation selects
-                    which of the certificates is used for a given connection;
-                    how certificates are selected is outside the scope of this
-                    specification.
+                  <!--
+                    Although any given DTLS connection will use only one certificate, this attribute allows the caller to provide multiple certificates that support different algorithms.  The final certificate will be selected based on the DTLS handshake, which establishes which certificates are allowed. The {{RTCPeerConnection}} implementation selects which of the certificates is used for a given connection; how certificates are selected is outside the scope of this specification.
+                  -->
+                  任意の DTLS 接続では、1つの証明書しか使用しませんが、この属性を使用することで、呼び出し側が異なるアルゴリズムをサポートする複数の証明書を提供することができます。 最終的な証明書は、どの証明書が許可されているかを確立する DTLS ハンドシェイクに基づいて選択されます。{{RTCPeerConnection}} の実装は、特定の接続にどの証明書を使用するかを選択します。
                   </p>
                   <p class="note">
-                    Existing implementations only utilize the first certificate
-                    provided; the others are ignored.
+                  <!--
+                    Existing implementations only utilize the first certificate provided; the others are ignored.
+                  -->
+                    既存の実装では、提供された最初の証明書のみが利用され、他の証明書は無視されます。
                   </p>
                   <p>
-                    If this value is absent, then a default set of certificates
-                    is generated for each {{RTCPeerConnection}} instance.
+                  <!--
+                    If this value is absent, then a default set of certificates is generated for each {{RTCPeerConnection}} instance.
+                  -->
+                    この値がない場合、各 {{RTCPeerConnection}} インスタンスにデフォルトの証明書のセットが生成されます。
                   </p>
                   <p>
-                    This option allows applications to establish key
-                    continuity. An {{RTCCertificate}} can be persisted in
-                    [[?INDEXEDDB]] and reused. Persistence and reuse also
-                    avoids the cost of key generation.
+                  <!--
+                    This option allows applications to establish key continuity. An {{RTCCertificate}} can be persisted in [[?INDEXEDDB]] and reused. Persistence and reuse also avoids the cost of key generation.
+                  -->
+                  このオプションにより、アプリケーションは鍵の継続性を確立することができます。{{RTCCertificate}}は [[?INDEXEDDB]] に永続化され、再利用することができます。また、永続化と再利用により、鍵生成のコストを回避することができます。
                   </p>
                   <p>
-                    The value for this configuration option cannot change after
-                    its value is initially selected.
+                  <!--
+                    The value for this configuration option cannot change after its value is initially selected.
+                  -->
+                    この設定オプションの値は、最初に選択された後は変更できません。
                   </p>
                 </dd>
                 <dt data-tests=
@@ -402,9 +404,10 @@
                 </dt>
                 <dd>
                   <p>
-                    Size of the prefetched ICE pool as defined in
-                    <span data-jsep=
-                    "ice-candidate-pool pc-constructor">[[!RFC8829]]</span>.
+                  <!--
+                    Size of the prefetched ICE pool as defined in <span data-jsep= "ice-candidate-pool pc-constructor">[[!RFC8829]]</span>.
+                  -->
+                    <span data-jsep= "ice-candidate-pool pc-constructor">[[!RFC8829]]</span> で定義されている、プリフェッチされた ICE プールのサイズ。
                   </p>
                 </dd>
               </dl>
