@@ -88,13 +88,22 @@
     </section>
     <section id="conformance">
       <p>
+      <!--
         This specification defines conformance criteria that apply to a single product: the <dfn>user agent</dfn> that implements the interfaces that it contains.
+      -->
+        この仕様は、この仕様に含まれるインターフェースを実装した<dfn>ユーザーエージェント</dfn>という単一の製品に適用される適合性基準を定義しています。
       </p>
       <p>
+      <!--
         Conformance requirements phrased as algorithms or specific steps may be implemented in any manner, so long as the end result is equivalent. (In particular, the algorithms defined in this specification are intended to be easy to follow, and not intended to be performant.)
+      -->
+        アルゴリズムや特定のステップで表現された適合性要件は、最終結果が同等である限り、どのような方法で実装しても構いません。(特に、本仕様書で定義されているアルゴリズムは、簡単に実行できることを目的としており、パフォーマンスの向上を目的としていません)。
       </p>
       <p>
+      <!--
         Implementations that use ECMAScript to implement the APIs defined in this specification MUST implement them in a manner consistent with the ECMAScript Bindings defined in the Web IDL specification [[!WEBIDL]], as this specification uses that specification and terminology.
+      -->
+        本仕様で定義されている API を ECMAScript で実装する場合、本仕様ではWeb IDL仕様 [[!WEBIDL]] で定義されている ECMAScript Bindings と一貫性のある方法で実装しなければなりません（本仕様ではその仕様と用語を使用しています）。
       </p>
     </section>
     <section>
@@ -105,102 +114,139 @@
         イベントハンドラーに使用されるコールバックを表す{{EventHandler}}インターフェイスは、[[!HTML]]で定義されています。
       </p>
       <p>
-        The concepts [= queue a task =] and [= networking task source =] are
-        defined in [[!HTML]].
+      <!--
+        The concepts [= queue a task =] and [= networking task source =] are defined in [[!HTML]].
+      -->
+        [= queue a task =] と [= networking task source =] という概念は [[!HTML]] で定義されています。
       </p>
       <p>
+      <!--
         The concept [= fire an event =] is defined in [[!DOM]].
+      -->
+        [= fire an event =] という概念は [[!DOM]] で定義されています。
       </p>
       <p>
-        The terms [= event =], [= event handlers =] and [= event handler event
-        types =] are defined in [[!HTML]].
+      <!--
+        The terms [= event =], [= event handlers =] and [= event handler event types =] are defined in [[!HTML]].
+      -->
+        [= event =] 、 [= event handlers =] 、 [= event handler event types =] という用語は、 [[!HTML]] で定義されています。
       </p>
       <p>
-        {{Performance.timeOrigin}} and {{Performance.now()}} are defined in
-        [[!hr-time]].
+      <!--
+        {{Performance.timeOrigin}} and {{Performance.now()}} are defined in [[!hr-time]].
+      -->
+        {{Performance.timeOrigin}} と {{Performance.now()}} は [[!hr-time]] で定義されています。
       </p>
       <p>
-        The terms <dfn class=fixme data-cite="HTML/structured-data.html#serializable-objects">serializable objects</dfn>, [= serialization steps =], and [=
-        deserialization steps =] are defined in [[!HTML]].
+      <!--
+        The terms <dfn class=fixme data-cite="HTML/structured-data.html#serializable-objects">serializable objects</dfn>, [= serialization steps =], and [= deserialization steps =] are defined in [[!HTML]].
+      -->
+       <dfn class=fixme data-cite="HTML/structured-data.html#serializable-objects">serializable objects</dfn> 、 [= serialization steps= ] 、 [= deserialization steps =]という用語は [[! HTML]] で定義されています。
       </p>
       <p>
-        The terms {{MediaStream}}, {{MediaStreamTrack}}, and
-        {{MediaStreamConstraints}} are defined in [[!GETUSERMEDIA]]. Note that
-        {{MediaStream}} is extended in <a href="#mediastream-network-use"></a>
-        in this document while {{MediaStreamTrack}} is extended in <a href=
-        "#mediastreamtrack-network-use"></a> in this document.
+      <!--
+        The terms {{MediaStream}}, {{MediaStreamTrack}}, and {{MediaStreamConstraints}} are defined in [[!GETUSERMEDIA]]. Note that {{MediaStream}} is extended in <a href="#mediastream-network-use"></a> in this document while {{MediaStreamTrack}} is extended in <a href= "#mediastreamtrack-network-use"></a> in this document.
+      -->
+        {{MediaStream}} 、 {{MediaStreamTrack}} 、 {{MediaStreamConstraints}} という用語は、 [[!GETUSERMEDIA]] で定義されています。なお、 {{MediaStream}} はこのドキュメントの <a href="#mediastream-network-use"></a> で、 {{MediaStreamTrack}} はこのドキュメントの <a href="#mediastreamtrack-network-use"></a> で拡張されています。
       </p>
       <p>
+      <!--
         The term {{Blob}} is defined in [[!FILEAPI]].
+      -->
+        {{Blob}} という用語は、 [[!FILEAPI]] で定義されています。
       </p>
       <p>
+      <!--
         The term <dfn>media description</dfn> is defined in [[!RFC4566]].
+      -->
+        <dfn>media description</dfn> という用語は [[!RFC4566]] で定義されています。
       </p>
       <p>
+      <!--
         The term <dfn>media transport</dfn> is defined in [[!RFC7656]].
+      -->
+        <dfn>media transport</dfn>という用語は [[!RFC7656]] で定義されています。
       </p>
       <p>
-        The term <dfn>generation</dfn> is defined in [[RFC8838]] Section
-        2.
+      <!--
+        The term <dfn>generation</dfn> is defined in [[RFC8838]] Section 2.
+      -->
+        <dfn>generation</dfn> という用語は、 [[RFC8838]] のセクション2で定義されています。
       </p>
       <p>
-        The terms <dfn data-cite="!WEBRTC-STATS#dfn-stats-object">stats
-        object</dfn> and <dfn data-cite=
-        "!WEBRTC-STATS#dfn-monitored-object">monitored object</dfn> are defined
-        in [[!WEBRTC-STATS]].
+      <!--
+        The terms <dfn data-cite="!WEBRTC-STATS#dfn-stats-object">stats object</dfn> and <dfn data-cite= "!WEBRTC-STATS#dfn-monitored-object">monitored object</dfn> are defined in [[!WEBRTC-STATS]].
+      -->
+       <dfn data-cite="!WEBRTC-STATS#dfn-stats-object">stats オブジェクト</dfn>と<dfn data-cite="!WEBRTC-STATS#dfn-monitored-object">monitored オブジェクト</dfn>という用語は [[!WEBRTC-STATS]] で定義されています。
       </p>
       <p>
-        When referring to exceptions, the terms [= exception/throw =] and [=
-        exception/created =] are defined in [[!WEBIDL]].
+      <!--
+        When referring to exceptions, the terms [= exception/throw =] and [= exception/created =] are defined in [[!WEBIDL]].
+      -->
+       例外に言及する場合、 [= exception/throw =] および [= exception/created =] という用語は [[! WEBIDL]] で定義されています。
       </p>
       <p>
+      <!--
         The callback {{VoidFunction}} is defined in [[!WEBIDL]].
+      -->
+        コールバック {{VoidFunction}} は [[!WEBIDL]] で定義されています。
       </p>
       <p>
-        The term "throw" is used as specified in [[!INFRA]]: it terminates the
-        current processing steps.
+      <!--
+        The term "throw" is used as specified in [[!INFRA]]: it terminates the current processing steps.
+      -->
+        throw "という用語は、 [[!INFRA]] で規定されているように、現在の処理ステップを終了させます。
       </p>
       <p>
-        The terms <dfn data-lt="fulfill|fulfillment">fulfilled</dfn>,
-        <dfn data-lt="reject|rejection|rejecting">rejected</dfn>, <dfn data-lt=
-        "resolve|resolves">resolved</dfn>, <dfn>pending</dfn> and
-        <dfn>settled</dfn> used in the context of Promises are defined in
-        [[!ECMASCRIPT-6.0]].
+      <!--
+        The terms <dfn data-lt="fulfill|fulfillment">fulfilled</dfn>, <dfn data-lt="reject|rejection|rejecting">rejected</dfn>, <dfn data-lt= "resolve|resolves">resolved</dfn>, <dfn>pending</dfn> and <dfn>settled</dfn> used in the context of Promises are defined in [[!ECMASCRIPT-6.0]].
+      -->
+        プロミスの文脈で使われる <dfn data-lt="fill|fulfillment">fulfilled</dfn> 、 <dfn data-lt="reject|rejecting">rejected</dfn> 、<dfn data-lt="resolve|resolves">resolved</dfn> 、 <dfn>pending</dfn> 、 <dfn>settled</dfn> という用語は、 [[!ECMASCRIPT-6.0]] で定義されています。
       </p>
       <p>
-        The terms <dfn>bundle</dfn>, <dfn>bundle-only</dfn> and
-        <dfn>bundle-policy</dfn> are defined in [[!RFC8829]].
+      <!--
+        The terms <dfn>bundle</dfn>, <dfn>bundle-only</dfn> and <dfn>bundle-policy</dfn> are defined in [[!RFC8829]].
+      -->
+        <dfn>bundle</dfn> 、 <dfn>bundle-only</dfn> 、 <dfn>bundle-policy</dfn> という用語は、 [[!RFC8829]] で定義されています。
       </p>
       <p>
-        The <dfn data-cite=
-        "WebCryptoAPI/#dfn-AlgorithmIdentifier">AlgorithmIdentifier</dfn> is
-        defined in [[!WebCryptoAPI]].
+      <!--
+        The <dfn data-cite= "WebCryptoAPI/#dfn-AlgorithmIdentifier">AlgorithmIdentifier</dfn> is defined in [[!WebCryptoAPI]].
+      -->
+        <dfn data-cite= "WebCryptoAPI/#dfn-AlgorithmIdentifier">AlgorithmIdentifier</dfn> は、 [[!WebCryptoAPI]] に定義されています。
       </p>
       <p class="note">
-        The general principles for Javascript APIs apply, including the
-        principle of <a href=
-        "https://w3ctag.github.io/design-principles/#js-rtc">run-to-completion</a>
-        and no-data-races as defined in [[API-DESIGN-PRINCIPLES]]. That is,
-        while a task is running, external events do not influence what's
-        visible to the Javascript application. For example, the amount of data
-        buffered on a data channel will increase due to "send" calls while
-        Javascript is executing, and the decrease due to packets being sent
-        will be visible after a task checkpoint.<br>
-        It is the responsibility of the user agent to make sure the set of
-        values presented to the application is consistent - for instance that
-        getContributingSources() (which is synchronous) returns values for all
-        sources measured at the same time.
+      <!--
+        The general principles for Javascript APIs apply, including the principle of <a href= "https://w3ctag.github.io/design-principles/#js-rtc">run-to-completion</a> and no-data-races as defined in [[API-DESIGN-PRINCIPLES]]. That is, while a task is running, external events do not influence what's visible to the Javascript application. For example, the amount of data buffered on a data channel will increase due to "send" calls while Javascript is executing, and the decrease due to packets being sent will be visible after a task checkpoint.<br> It is the responsibility of the user agent to make sure the set of values presented to the application is consistent - for instance that getContributingSources() (which is synchronous) returns values for all sources measured at the same time.
+      -->
+        [[API-DESIGN-PRINCIPLES]] で定義されている <a href="https://w3ctag.github.io/design-principles/#js-rtc">run-to-completion</a> と no-data-races の原則を含む、 Javascript の API の一般的な原則が適用されます。つまり、タスクが実行されている間は、外部のイベントが Javascript アプリケーションに表示される内容に影響を与えることはありません。<br> アプリケーションに表示される値のセットが一貫していることを確認するのはユーザーエージェントの責任です。例えば、 getContributingSources() (これは同期的です)は、同時に測定されたすべてのソースの値を返します。
       </p>
     </section>
     <section>
       <h2>
+      <!--
         Peer-to-peer connections
+      -->
+        ピアツーピア接続
       </h2>
       <section>
         <h3>
+          <!--
           Introduction
+          -->
+          はじめに
         </h3>
         <p data-tests="RTCPeerConnection-remote-track-mute.https.html">
+          <!--
+          An {{RTCPeerConnection}} instance allows an application to establish
+          peer-to-peer communications with another {{RTCPeerConnection}}
+          instance in another browser, or to another endpoint implementing the
+          required protocols. Communications are coordinated by the exchange of
+          control messages (called a signaling protocol) over a signaling
+          channel which is provided by unspecified means, but generally by a
+          script in the page via the server, e.g. using <a data-cite="?html/web-sockets.html#websocket">Web
+          Sockets</a> or <code>XMLHttpRequest</code> [[?xhr]].
+          -->
           {{RTCPeerConnection}}インスタンスは、アプリケーションが別のブラウザの別の{{RTCPeerConnection}}インスタンスや、必要なプロトコルを実装している別のエンドポイントとの間でピアツーピア通信を確立できるようにします。通信は、不特定の手段で提供されるシグナリングチャネル上での制御メッセージ（シグナリングプロトコルと呼ばれる）の交換によって調整されますが、一般的にはサーバー経由でページ内のスクリプトによって行われます。例えば、<a data-cite="?html/web-sockets.html#websocket">Web Sockets</a>や<code>XMLHttpRequest</code> [[?xhr]]を使用します。
         </p>
       </section>
