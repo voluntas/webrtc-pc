@@ -454,7 +454,7 @@
             <dfn>RTCIceServer</dfn> ディクショナリ
           </h4>
           <p>
-            {{RTCIceServer}} ディクショナリは、 [= ICE Agent =] がピアとの接続を確立するために使用できる STUN および TURN サーバーを記述するために使用されます。
+            {{RTCIceServer}} ディクショナリは、[= ICE Agent =] がピアとの接続を確立するために使用できる STUN および TURN サーバーを記述するために使用されます。
           </p>
           <div>
             <pre class="idl">dictionary RTCIceServer {
@@ -771,9 +771,10 @@
                     <dfn data-idl="">stable</dfn>
                   </td>
                   <td>
-                    There is no offer/answer exchange in progress. This is also
-                    the initial state, in which case the local and remote
-                    descriptions are empty.
+                  <!--
+                    There is no offer/answer exchange in progress. This is also the initial state, in which case the local and remote descriptions are empty.
+                  -->
+                    オファー/アンサーの交換は行われていません。これは初期状態でもあり、この場合、ローカルおよびリモートの記述は空です。
                   </td>
                 </tr>
                 <tr>
@@ -782,8 +783,10 @@
                     <dfn data-idl="">have-local-offer</dfn>
                   </td>
                   <td>
+                  <!--
                     A local description, of type {{RTCSdpType/"offer"}}, has
                     been successfully applied.
+                  -->
                   </td>
                 </tr>
                 <tr>
@@ -792,8 +795,10 @@
                     <dfn data-idl="">have-remote-offer</dfn>
                   </td>
                   <td>
-                    A remote description, of type {{RTCSdpType/"offer"}}, has
-                    been successfully applied.
+                  <!--
+                    A remote description, of type {{RTCSdpType/"offer"}}, has been successfully applied.
+                  -->
+                    タイプ {{RTCSdpType/"offer"}} のリモート記述が、正常に適用されました。
                   </td>
                 </tr>
                 <tr>
@@ -802,9 +807,10 @@
                     <dfn data-idl="">have-local-pranswer</dfn>
                   </td>
                   <td>
-                    A remote description of type {{RTCSdpType/"offer"}} has
-                    been successfully applied and a local description of type
-                    {{RTCSdpType/"pranswer"}} has been successfully applied.
+                  <!--
+                    A remote description of type {{RTCSdpType/"offer"}} has been successfully applied and a local description of type {{RTCSdpType/"pranswer"}} has been successfully applied.
+                  -->
+                    タイプ {{RTCSdpType/"offer"}} のリモート記述が正常に適用され、タイプ {{RTCSdpType/"pranswer"}} のローカル記述が正常に適用されました。
                   </td>
                 </tr>
                 <tr>
@@ -813,9 +819,10 @@
                     <dfn data-idl="">have-remote-pranswer</dfn>
                   </td>
                   <td>
-                    A local description of type {{RTCSdpType/"offer"}} has been
-                    successfully applied and a remote description of type
-                    {{RTCSdpType/"pranswer"}} has been successfully applied.
+                  <!--
+                    A local description of type {{RTCSdpType/"offer"}} has been successfully applied and a remote description of type {{RTCSdpType/"pranswer"}} has been successfully applied.
+                  -->
+                    タイプ {{RTCSdpType/"offer"}} のローカル記述が正常に適用され、タイプ {{RTCSdpType/"pranswer"}} のリモート記述が正常に適用されました。
                   </td>
                 </tr>
                 <tr>
@@ -824,8 +831,10 @@
                     <dfn data-idl="">closed</dfn>
                   </td>
                   <td>
-                    The {{RTCPeerConnection}} has been closed; its
-                    {{RTCPeerConnection/[[IsClosed]]}} slot is <code>true</code>.
+                  <!--
+                    The {{RTCPeerConnection}} has been closed; its {{RTCPeerConnection/[[IsClosed]]}} slot is <code>true</code>.
+                  -->
+                    {{RTCPeerConnection}}は閉じられました。{{RTCPeerConnection/[[IsClosed]]}} スロットは <code>true</code> です。
                   </td>
                 </tr>
               </tbody>
@@ -16353,21 +16362,22 @@ if (sender.dtmf.canInsertDTMF) {
       </section>
       <section>
         <h3>
+        <!--
           Perfect Negotiation Example
+        -->
+          パーフェクトネゴシエーションの例
         </h3>
         <p>
-          Perfect negotiation is a recommended pattern to manage negotiation
-          transparently, abstracting this asymmetric task away from the rest of
-          an application. This pattern has advantages over one side always
-          being the offerer, as it lets applications operate on both peer
-          connection objects simultaneously without risk of glare (an offer
-          coming in outside of {{RTCSignalingState/"stable"}} state). The rest
-          of the application may use any and all modification methods and
-          attributes, without worrying about signaling state races.
+        <!--
+          Perfect negotiation is a recommended pattern to manage negotiation transparently, abstracting this asymmetric task away from the rest of an application. This pattern has advantages over one side always being the offerer, as it lets applications operate on both peer connection objects simultaneously without risk of glare (an offer coming in outside of {{RTCSignalingState/"stable"}} state). The rest of the application may use any and all modification methods and attributes, without worrying about signaling state races.
+        -->
+          パーフェクトネゴシエーションは、ネゴシエーションを透過的に管理するための推奨パターンで、この非対称なタスクをアプリケーションの他の部分から抽象化します。このパターンには、一方が常にオファー側である場合に比べて、アプリケーションがグレア（{{RTCSignalingState/"stable"}} 状態の外に入ってきたオファー）のリスクなしに両方のピア接続オブジェクトを同時に操作できるという利点があります。アプリケーションの残りの部分は、シグナリング状態の競合を気にすることなく、すべてのモディフィケーション・メソッドとアトリビュートを使用することができます。
         </p>
         <p>
-          It designates different roles to the two peers, with behavior to
-          resolve signaling collisions between them:
+        <!--
+          It designates different roles to the two peers, with behavior to resolve signaling collisions between them:
+        -->
+          2つのピアに異なる役割を指定し、ピア間のシグナリングの衝突を解決するための動作を行います:
         </p>
         <ol>
           <li>
@@ -17251,39 +17261,41 @@ interface RTCErrorEvent : Event {
     </section>
     <section class="informative">
       <h2>
+        <!--
         Privacy and Security Considerations
+        -->
+        プライバシーとセキュリティへの配慮
       </h2>
       <p>
-        This section is non-normative; it specifies no new behaviour, but
-        instead summarizes information already present in other parts of the
-        specification. The overall security considerations of the general set
-        of APIs and protocols used in WebRTC are described in
-        [[?RFC8827]].
+        <!--
+        This section is non-normative; it specifies no new behaviour, but instead summarizes information already present in other parts of the specification. The overall security considerations of the general set of APIs and protocols used in WebRTC are described in [[?RFC8827]].
+        -->
+        このセクションは規範ではありません。新しい動作を規定するのではなく、仕様書の他の部分にすでに存在する情報を要約しています。WebRTCで使用されているAPIとプロトコルの一般的なセットの全体的なセキュリティに関する考察は、[[?RFC8827]]に記載されています。
       </p>
       <section>
         <h2>
+        <!--
           Impact on same origin policy
+        -->
+          同一オリジンポリシーへの影響
         </h2>
         <p>
-          This document extends the Web platform with the ability to set up
-          real-time, direct communication between browsers and other devices,
-          including other browsers.
+        <!--
+          This document extends the Web platform with the ability to set up real-time, direct communication between browsers and other devices, including other browsers.
+        -->
+          このドキュメントは、Webプラットフォームを拡張し、ブラウザと他のブラウザを含む他のデバイスとの間にリアルタイムで直接通信を設定する機能を備えています。
         </p>
         <p>
-          This means that data and media can be shared between applications
-          running in different browsers, or between an application running in
-          the same browser and something that is not a browser, something that
-          is an extension to the usual barriers in the Web model against
-          sending data between entities with different origins.
+        <!--
+          This means that data and media can be shared between applications running in different browsers, or between an application running in the same browser and something that is not a browser, something that is an extension to the usual barriers in the Web model against sending data between entities with different origins.
+        -->
+          これは、異なるブラウザで動作するアプリケーション間、あるいは同じブラウザで動作するアプリケーションとブラウザではないものとの間で、データやメディアを共有できることを意味しています。これは、異なるオリジンを持つエンティティ間でデータを送信することに対するWebモデルの通常の障壁を拡張したものです。
         </p>
         <p>
-          The WebRTC specification provides no user prompts or chrome
-          indicators for communication; it assumes that once the Web page has
-          been allowed to access media, it is free to share that media with
-          other entities as it chooses. Peer-to-peer exchanges of data view
-          WebRTC datachannels can thus occur without any user explicit consent
-          or involvement, similarly as a server-mediated exchange (e.g. via Web
-          Sockets) could occur without user involvement.
+        <!--
+          The WebRTC specification provides no user prompts or chrome indicators for communication; it assumes that once the Web page has been allowed to access media, it is free to share that media with other entities as it chooses. Peer-to-peer exchanges of data view WebRTC datachannels can thus occur without any user explicit consent or involvement, similarly as a server-mediated exchange (e.g. via Web Sockets) could occur without user involvement.
+        -->
+          WebRTCの仕様では、通信のためのユーザへのプロンプトやクロームインジケーターは用意されておらず、Webページがメディアへのアクセスを許可された後は、そのメディアを他のエンティティと自由に共有できることを前提としています。WebRTC のデータチャネルを介したピアツーピアのデータ交換は、ユーザーの明示的な同意や関与なしに行うことができます。これは、サーバーを介した交換（例：Web ソケットを介した交換）がユーザーの関与なしに行われるのと同様です。
         </p>
       </section>
       <section>
