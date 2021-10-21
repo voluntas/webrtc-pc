@@ -11008,89 +11008,58 @@ interface RTCRtpTransceiver {
           {{RTCPeerConnection/addTransceiver}} メソッドは、送信可能なサイマルキャストストリームの最大数や、{{RTCRtpSendParameters/encodings}} の順序を含む <dfn>simulcast envelope</dfn> を確立します。個々のサイマルキャストストリームの特性は {{RTCRtpSender/setParameters}} メソッドを使って変更できますが、[= simulcast envelope =] は変更できません。このモデルの意味するところは、{{RTCRtpTransceiverInit/sendEncodings}} を引数として取らないため、{{RTCRtpTransceiver}} がサイマルキャストを送信するように設定することができないので、{{RCPeerConnection/addTrack()}} メソッドがサイマルキャスト機能を提供できないことです。
           </p>
           <p class="needs-test">
-            Another implication is that the answerer cannot set the [=
-            simulcast envelope =] directly. Upon calling the
-            {{RTCPeerConnection/setRemoteDescription}} method of the
-            {{RTCPeerConnection}} object, the [= simulcast envelope =] is
-            configured on the {{RTCRtpTransceiver}} to contain the layers
-            described by the specified session description. Once the
-            envelope is determined, layers cannot be removed. They can be
-            marked as inactive by setting the
-            {{RTCRtpEncodingParameters/active}} member to <code>false</code>
-            effectively disabling the layer.
+          <!--
+            Another implication is that the answerer cannot set the [= simulcast envelope =] directly. Upon calling the {{RTCPeerConnection/setRemoteDescription}} method of the {{RTCPeerConnection}} object, the [= simulcast envelope =] is configured on the {{RTCRtpTransceiver}} to contain the layers described by the specified session description. Once the envelope is determined, layers cannot be removed. They can be marked as inactive by setting the {{RTCRtpEncodingParameters/active}} member to <code>false</code> effectively disabling the layer.
+          -->
+          もう1つの意味は、回答者が [= simulcast envelope =] を直接設定できないということです。{{RTCPeerConnection}} オブジェクトの {{RTCPeerConnection/setRemoteDescription}} メソッドを呼び出すと、{{RTCRtpTransceiver}} 上で、指定されたセッション記述で記述されたレイヤーを含むように [= simulcast envelope =] が設定されます。エンベロープが決定すると、レイヤーは削除できません。{{RTCRtpEncodingParameters/active}} メンバーを <code>false</code> に設定することで、レイヤーを非アクティブにすることができます。
           </p>
           <p data-tests="simulcast/getStats.https.html">
-            While {{RTCRtpSender/setParameters}} cannot modify the [= simulcast
-            envelope =], it is still possible to control the number of streams
-            that are sent and the characteristics of those streams. Using
-            {{RTCRtpSender/setParameters}}, simulcast streams can be made
-            inactive by setting the {{RTCRtpEncodingParameters/active}} member
-            to <code>false</code>, or can be reactivated by setting the
-            {{RTCRtpEncodingParameters/active}} member to <code>true</code>.
-            Using {{RTCRtpSender/setParameters}}, stream characteristics can be
-            changed by modifying attributes such as
-            {{RTCRtpEncodingParameters/maxBitrate}}.
+          <!--
+            While {{RTCRtpSender/setParameters}} cannot modify the [= simulcast envelope =], it is still possible to control the number of streams that are sent and the characteristics of those streams. Using {{RTCRtpSender/setParameters}}, simulcast streams can be made inactive by setting the {{RTCRtpEncodingParameters/active}} member to <code>false</code>, or can be reactivated by setting the {{RTCRtpEncodingParameters/active}} member to <code>true</code>.  Using {{RTCRtpSender/setParameters}}, stream characteristics can be changed by modifying attributes such as {{RTCRtpEncodingParameters/maxBitrate}}.
+          -->
+          {{RTCRtpSender/setParameters}} は [= simulcast envelope =] を変更することはできませんが、送信されるストリームの数やストリームの特性を制御することは可能です。{{RTCRtpSender/setParameters}} を使用して、{{RTCRtpEncodingParameters/active}} メンバーを <code>false</code> に設定することで、サイマルキャスト・ストリームを非アクティブにしたり、{{RTCRtpEncodingParameters/active}} メンバーを <code>true</code> に設定することで、再アクティブにすることができます。{{RTCRtpSender/setParameters}} を使用して、{{RTCRtpEncodingParameters/maxBitrate}} などの属性を変更することで、ストリームの特性を変更することができます。
           </p>
           <p class="note" data-tests="simulcast/getStats.https.html">
-            Simulcast is frequently used to send multiple encodings to an SFU,
-            which will then forward one of the simulcast streams to the end
-            user. The user agent is therefore expected to allocate bandwidth
-            between encodings in such a way that all simulcast streams are
-            usable on their own; for instance, if two simulcast streams have
-            the same {{RTCRtpEncodingParameters/maxBitrate}}, one would expect
-            to see a similar bitrate on both streams. If bandwidth does not
-            permit all simulcast streams to be sent in an usable form, the user
-            agent is expected to stop sending some of the simulcast streams.
+          <!--
+            Simulcast is frequently used to send multiple encodings to an SFU, which will then forward one of the simulcast streams to the end user. The user agent is therefore expected to allocate bandwidth between encodings in such a way that all simulcast streams are usable on their own; for instance, if two simulcast streams have the same {{RTCRtpEncodingParameters/maxBitrate}}, one would expect to see a similar bitrate on both streams. If bandwidth does not permit all simulcast streams to be sent in an usable form, the user agent is expected to stop sending some of the simulcast streams.
+          -->
+            サイマルキャストは、複数のエンコーディングをSFUに送信し、SFUがそのうちの1つのサイマルキャストストリームをエンドユーザーに転送するためによく使われます。たとえば、2つのサイマルキャストストリームの {{RTCRtpEncodingParameters/maxBitrate}} が同じであれば、両方のストリームに同じようなビットレートが表示されることが期待されます。帯域幅がすべてのサイマルキャストストリームを使用可能な形で送信することを許可しない場合、ユーザーエージェントはサイマルキャストストリームの一部の送信を停止することが期待されます。
           </p>
           <p data-tests="simulcast/basic.https.html">
-            As defined in <span data-jsep="simulcast">[[!RFC8829]]</span>, an
-            offer from a user-agent will only contain a "send" description and
-            no "recv" description on the <code class="sdp">a=simulcast</code>
-            line. Alternatives and restrictions (described in
-            [[RFC8853]]) are not supported.
+          <!--
+            As defined in <span data-jsep="simulcast">[[!RFC8829]]</span>, an offer from a user-agent will only contain a "send" description and no "recv" description on the <code class="sdp">a=simulcast</code> line. Alternatives and restrictions (described in [[RFC8853]]) are not supported.
+          -->
+            <span data-jsep="simulcast">[[!RFC8829]]</span> で定義されているように、ユーザーエージェントからのオファーは、<code class="sdp">a=simulcast</code> の行に "send" の記述のみを含み、"recv" の記述はありません。代替案や制限（[[RFC8853]] に記載）はサポートされていません。
           </p>
           <p class="needs-test">
-            This specification does not define how to configure reception of
-            multiple RTP encodings using {{RTCPeerConnection/createOffer}},
-            {{RTCPeerConnection/createAnswer}} or
-            {{RTCPeerConnection/addTransceiver}}. However when
-            {{RTCPeerConnection/setRemoteDescription}} is called with a
-            corresponding remote description that is able to send multiple RTP
-            encodings as defined in [[!RFC8829]], and the browser supports
-            receiving multiple RTP encodings, the {{RTCRtpReceiver}} may
-            receive multiple RTP encodings and the parameters retrieved via the
-            transceiver's
-            {{RTCRtpTransceiver/receiver}}.{{RTCRtpReceiver/getParameters()}}
-            will reflect the encodings negotiated.
+          <!--
+            This specification does not define how to configure reception of multiple RTP encodings using {{RTCPeerConnection/createOffer}}, {{RTCPeerConnection/createAnswer}} or {{RTCPeerConnection/addTransceiver}}. However when {{RTCPeerConnection/setRemoteDescription}} is called with a corresponding remote description that is able to send multiple RTP encodings as defined in [[!RFC8829]], and the browser supports receiving multiple RTP encodings, the {{RTCRtpReceiver}} may receive multiple RTP encodings and the parameters retrieved via the transceiver's {{RTCRtpTransceiver/receiver}}.{{RTCRtpReceiver/getParameters()}} will reflect the encodings negotiated.
+          -->
+            本仕様では、{{RTCPeerConnection/createOffer}}、{{RTCPeerConnection/createAnswer}}、{{RTCPeerConnection/addTransceiver}} を使用して複数の RTP エンコーディングの受信を設定する方法は定義されていません。ただし、{{RTCPeerConnection/setRemoteDescription}} が、[[!RFC8829]] で定義されている複数の RTP エンコーディングを送信できる対応するリモート記述で {{RTCRtpReceiver}} が呼び出され、ブラウザが複数の RTP エンコーディングの受信をサポートしている場合、{{RTCRtpReceiver} は複数の RTP エンコーディングを受信することができ、トランシーバの {{RTCRtpTransceiver/receiver}.{{RTCRtpReceiver/getParameters()}} を介して取得されるパラメータには、ネゴシエートされたエンコーディングが反映されます。
           </p>
           <p class="note">
-            An {{RTCRtpReceiver}} can receive multiple RTP streams in a
-            scenario where a Selective Forwarding Unit (SFU) switches between
-            simulcast streams it receives from user agents. If the SFU does not
-            rewrite RTP headers so as to arrange the switched streams into a
-            single RTP stream prior to forwarding, the {{RTCRtpReceiver}} will
-            receive packets from distinct RTP streams, each with their own SSRC
-            and sequence number space. While the SFU may only forward a single
-            RTP stream at any given time, packets from multiple RTP streams can
-            become intermingled at the receiver due to reordering. An
-            {{RTCRtpReceiver}} equipped to receive multiple RTP streams will
-            therefore need to be able to correctly order the received packets,
-            recognize potential loss events and react to them. Correct
-            operation in this scenario is non-trivial and therefore is optional
-            for implementations of this specification.
+          <!--
+            An {{RTCRtpReceiver}} can receive multiple RTP streams in a scenario where a Selective Forwarding Unit (SFU) switches between simulcast streams it receives from user agents. If the SFU does not rewrite RTP headers so as to arrange the switched streams into a single RTP stream prior to forwarding, the {{RTCRtpReceiver}} will receive packets from distinct RTP streams, each with their own SSRC and sequence number space. While the SFU may only forward a single RTP stream at any given time, packets from multiple RTP streams can become intermingled at the receiver due to reordering. An {{RTCRtpReceiver}} equipped to receive multiple RTP streams will therefore need to be able to correctly order the received packets, recognize potential loss events and react to them. Correct operation in this scenario is non-trivial and therefore is optional for implementations of this specification.
+          -->
+            選択的転送ユニット（SFU）がユーザーエージェントから受信するサイマルキャストストリームを切り替えるシナリオでは、{{RTCRtpReceiver}}は複数のRTPストリームを受信することができます。SFUが転送前に、切り替わったストリームを単一の RTP ストリームにまとめるようにRTPヘッダーを書き換えない場合、{{RTCRtpReceiver}} は、それぞれが独自の SSRC とシーケンス番号スペースを持つ、異なる RTP ストリームからのパケットを受信することになります。SFU は常に単一の RTP ストリームのみを転送することができますが、複数の RTP ストリームからのパケットは、並び替えにより受信機で混ざり合う可能性があります。そのため、複数の RTP ストリームを受信するために装備された {{RTCRtpReceiver}} は、受信したパケットを正しく順序付け、潜在的な損失イベントを認識し、それに対応することができる必要があります。このシナリオでの正しい操作は自明ではないため、本仕様の実装ではオプションとなります。
           </p>
           <section class="informative" id="rtcrtpencodingspatialsim-example*">
             <h3>
+            <!--
               Encoding Parameter Examples
+            -->
+              エンコーディングパラメータの例
             </h3>
             <div>
               <p>
-                Examples of simulcast scenarios implemented with encoding
-                parameters:
+              <!--
+                Examples of simulcast scenarios implemented with encoding parameters:
+              -->
+                エンコーディングパラメータを用いて実装されたサイマル放送のシナリオの例:
               </p>
               <pre class="example highlight">
 
-// Example of 3-layer spatial simulcast with all but the lowest resolution layer disabled
+// 最低解像度のレイヤー以外を無効にした 3 レイヤーの空間サイマルキャストの例
 var encodings = [
   {rid: 'q', active: true, scaleResolutionDownBy: 4.0}
   {rid: 'h', active: false, scaleResolutionDownBy: 2.0},
