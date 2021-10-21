@@ -37,18 +37,29 @@
     </p>
     <section id="abstract">
       <p>
-        本ドキュメントでは、適切なリアルタイムプロトコル群を実装した他のブラウザやデバイスとの間で、メディアや一般的なアプリケーションデータの送受信を可能にする、 WebIDL による一連の ECMAScript API を定義する。本仕様は、 IETF RTCWEB グループが策定したプロトコル仕様や、ローカルメディアデバイスにアクセスするための API 仕様と併せて策定されています。
+      <!--
+        This document defines a set of ECMAScript APIs in WebIDL to allow media
+        and generic application data to be sent to and received from another
+        browser or device implementing the appropriate set of real-time
+        protocols. This specification is being developed in conjunction with a
+        protocol specification developed by the IETF RTCWEB group and an API
+        specification to get access to local media devices.
+      -->          
+        ドキュメントでは、適切なリアルタイムプロトコル群を実装した他のブラウザやデバイスとの間で、メディアや一般的なアプリケーションデータの送受信を可能にする、WebIDL による一連の ECMAScript API を定義する。本仕様は、IETF RTCWEB グループが策定したプロトコル仕様や、ローカルメディアデバイスにアクセスするための API 仕様と併せて策定されています。
       </p>
     </section>
     <section id="sotd" class="updateable-rec">
       <p>
+      <!--
+        The API is based on preliminary work done in the WHATWG.
+      -->          
         この API は、 WHATWG で行われた予備的な作業に基づいています。
       </p>
       <p>
         この仕様は機能的に完成しており、これ以上の実質的な変更はなく安定していることが期待されています。<a href="https://www.w3.org/TR/2019/CR-webrtc-20191213/">前回の Candidate Recommendation</a> 以降、以下のような実質的な変更が仕様にもたらされました。
       </p>
       <ul>
-        <li>WebRTC がポートスキャンに使用されるのを防ぐために、 ICE 候補を管理者が禁止できるようにする
+        <li>WebRTC がポートスキャンに使用されるのを防ぐために、ICE 候補を管理者が禁止できるようにする
         </li>
         <li>複数の DTLS 証明書を設定する機能が廃止されました
         </li>
@@ -72,10 +83,10 @@
         はじめに
       </h2>
       <p>
-        この仕様で扱うHTMLでのピアツーピア通信やビデオ会議には、さまざまな側面があります:
+        この仕様で扱う HTML でのピアツーピア通信やビデオ会議には、さまざまな側面があります:
       </p>
       <ul>
-        <li>ICE、STUN、TURNなどのNATトラバーサル技術を用いたリモートピアへの接続。
+        <li>ICE、STUN、TURN などの NAT トラバーサル技術を用いたリモートピアへの接続。
         </li>
         <li>ローカルで制作したトラックをリモートピアに送信したり、リモートピアからトラックを受信したりすること。
         </li>
@@ -103,7 +114,7 @@
       <!--
         Implementations that use ECMAScript to implement the APIs defined in this specification MUST implement them in a manner consistent with the ECMAScript Bindings defined in the Web IDL specification [[!WEBIDL]], as this specification uses that specification and terminology.
       -->
-        本仕様で定義されている API を ECMAScript で実装する場合、本仕様ではWeb IDL仕様 [[!WEBIDL]] で定義されている ECMAScript Bindings と一貫性のある方法で実装しなければなりません（本仕様ではその仕様と用語を使用しています）。
+        本仕様で定義されている API を ECMAScript で実装する場合、本仕様では Web IDL仕様 [[!WEBIDL]] で定義されている ECMAScript Bindings と一貫性のある方法で実装しなければなりません（本仕様ではその仕様と用語を使用しています）。
       </p>
     </section>
     <section>
@@ -153,13 +164,13 @@
       <!--
         The terms {{MediaStream}}, {{MediaStreamTrack}}, and {{MediaStreamConstraints}} are defined in [[!GETUSERMEDIA]]. Note that {{MediaStream}} is extended in <a href="#mediastream-network-use"></a> in this document while {{MediaStreamTrack}} is extended in <a href= "#mediastreamtrack-network-use"></a> in this document.
       -->
-        {{MediaStream}} 、 {{MediaStreamTrack}} 、 {{MediaStreamConstraints}} という用語は、 [[!GETUSERMEDIA]] で定義されています。なお、 {{MediaStream}} はこのドキュメントの <a href="#mediastream-network-use"></a> で、 {{MediaStreamTrack}} はこのドキュメントの <a href="#mediastreamtrack-network-use"></a> で拡張されています。
+        {{MediaStream}}、{{MediaStreamTrack}}、{{MediaStreamConstraints}} という用語は、[[!GETUSERMEDIA]] で定義されています。なお、{{MediaStream}} はこのドキュメントの <a href="#mediastream-network-use"></a> で、{{MediaStreamTrack}} はこのドキュメントの <a href="#mediastreamtrack-network-use"></a> で拡張されています。
       </p>
       <p>
       <!--
         The term {{Blob}} is defined in [[!FILEAPI]].
       -->
-        {{Blob}} という用語は、 [[!FILEAPI]] で定義されています。
+        {{Blob}} という用語は、[[!FILEAPI]] で定義されています。
       </p>
       <p>
       <!--
@@ -177,7 +188,7 @@
       <!--
         The term <dfn>generation</dfn> is defined in [[RFC8838]] Section 2.
       -->
-        <dfn>generation</dfn> という用語は、 [[RFC8838]] のセクション2で定義されています。
+        <dfn>generation</dfn> という用語は、[[RFC8838]] のセクション2で定義されています。
       </p>
       <p>
       <!--
@@ -251,16 +262,23 @@
       </section>
       <section>
         <h3>
+        <!--
           Configuration
+        -->
+          構成
         </h3>
         <section>
           <h4>
+            <!--
             <dfn>RTCConfiguration</dfn> Dictionary
+            -->
+            <dfn>RTCConfiguration</dfn> ディクショナリ
           </h4>
           <p>
-            The {{RTCConfiguration}} defines a set of parameters to configure
-            how the peer-to-peer communication established via
-            {{RTCPeerConnection}} is established or re-established.
+          <!--
+            The {{RTCConfiguration}} defines a set of parameters to configure how the peer-to-peer communication established via {{RTCPeerConnection}} is established or re-established.
+          -->
+            {{RTCConfiguration}} は、{{RTCPeerConnection}} を介して確立されたピアツーピア通信がどのように確立または再確立されるかを設定するための一連のパラメータを定義します。
           </p>
           <div>
             <pre class="idl">dictionary RTCConfiguration {
@@ -273,7 +291,10 @@
 };</pre>
             <section>
               <h2>
+              <!--
                 Dictionary {{RTCConfiguration}} Members
+              -->
+                ディクショナリ {{RTCConfiguration}} メンバー
               </h2>
               <dl data-link-for="RTCConfiguration" data-dfn-for=
               "RTCConfiguration" class="dictionary-members">
@@ -283,8 +304,10 @@
                 </dt>
                 <dd>
                   <p>
-                    An array of objects describing servers available to be used
-                    by ICE, such as STUN and TURN servers.
+                  <!--
+                    An array of objects describing servers available to be used by ICE, such as STUN and TURN servers.
+                  -->
+                    STUN サーバーや TURN サーバーなど、ICE が使用できるサーバーを表すオブジェクトの配列です。
                   </p>
                 </dd>
                 <dt data-tests="RTCConfiguration-iceTransportPolicy.html">
@@ -293,8 +316,10 @@
                 </dt>
                 <dd>
                   <p>
-                    Indicates which candidates the [= ICE Agent =] is allowed
-                    to use.
+                  <!--
+                    Indicates which candidates the [= ICE Agent =] is allowed to use.
+                  -->
+                    [= ICE Agent =] がどの候補を使用することができるかを示します。
                   </p>
                 </dd>
                 <dt data-tests=
@@ -304,8 +329,10 @@
                 </dt>
                 <dd>
                   <p>
-                    Indicates which <a data-lt="RTCBundlePolicy">media-bundling
-                    policy</a> to use when gathering ICE candidates.
+                  <!--
+                    Indicates which <a data-lt="RTCBundlePolicy">media-bundling policy</a> to use when gathering ICE candidates.
+                  -->
+                    ICE候補を集める際に、どの <a data-lt="RTCBundlePolicy">media-bundling policy</a> を使用するかを示します。
                   </p>
                 </dd>
                 <dt data-tests="RTCConfiguration-rtcpMuxPolicy.html">
@@ -314,8 +341,10 @@
                 </dt>
                 <dd>
                   <p>
-                    Indicates which <a data-lt="RTCRtcpMuxPolicy">rtcp-mux
-                    policy</a> to use when gathering ICE candidates.
+                  <!--
+                    Indicates which <a data-lt="RTCRtcpMuxPolicy">rtcp-mux policy</a> to use when gathering ICE candidates.
+                  -->
+                    ICE 候補を集める際にどの <a data-lt="RTCRtcpMuxPolicy">rtcp-mux policy</a> を使用するかを示します。
                   </p>
                 </dd>
                 <dt data-tests=
@@ -325,8 +354,10 @@
                 </dt>
                 <dd>
                   <p>
-                    A set of certificates that the {{RTCPeerConnection}} uses
-                    to authenticate.
+                  <!--
+                    A set of certificates that the {{RTCPeerConnection}} uses to authenticate.
+                  -->
+                    {{RTCPeerConnection}} が認証に使用する証明書のセットです。
                   </p>
                   <p>
                     Valid values for this parameter are created through calls
