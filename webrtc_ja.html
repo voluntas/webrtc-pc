@@ -11052,7 +11052,7 @@ interface RTCRtpTransceiver {
           <!--
             An {{RTCRtpReceiver}} can receive multiple RTP streams in a scenario where a Selective Forwarding Unit (SFU) switches between simulcast streams it receives from user agents. If the SFU does not rewrite RTP headers so as to arrange the switched streams into a single RTP stream prior to forwarding, the {{RTCRtpReceiver}} will receive packets from distinct RTP streams, each with their own SSRC and sequence number space. While the SFU may only forward a single RTP stream at any given time, packets from multiple RTP streams can become intermingled at the receiver due to reordering. An {{RTCRtpReceiver}} equipped to receive multiple RTP streams will therefore need to be able to correctly order the received packets, recognize potential loss events and react to them. Correct operation in this scenario is non-trivial and therefore is optional for implementations of this specification.
           -->
-            選択的転送ユニット（SFU）がユーザーエージェントから受信するサイマルキャストストリームを切り替えるシナリオでは、{{RTCRtpReceiver}}は複数のRTPストリームを受信することができます。SFUが転送前に、切り替わったストリームを単一の RTP ストリームにまとめるようにRTPヘッダーを書き換えない場合、{{RTCRtpReceiver}} は、それぞれが独自の SSRC とシーケンス番号スペースを持つ、異なる RTP ストリームからのパケットを受信することになります。SFU は常に単一の RTP ストリームのみを転送することができますが、複数の RTP ストリームからのパケットは、並び替えにより受信機で混ざり合う可能性があります。そのため、複数の RTP ストリームを受信するために装備された {{RTCRtpReceiver}} は、受信したパケットを正しく順序付け、潜在的な損失イベントを認識し、それに対応することができる必要があります。このシナリオでの正しい操作は自明ではないため、本仕様の実装ではオプションとなります。
+            Selective Forwarding Unit（SFU）がユーザーエージェントから受信するサイマルキャストストリームを切り替えるシナリオでは、{{RTCRtpReceiver}}は複数のRTPストリームを受信することができます。SFUが転送前に、切り替わったストリームを単一の RTP ストリームにまとめるようにRTPヘッダーを書き換えない場合、{{RTCRtpReceiver}} は、それぞれが独自の SSRC とシーケンス番号スペースを持つ、異なる RTP ストリームからのパケットを受信することになります。SFU は常に単一の RTP ストリームのみを転送することができますが、複数の RTP ストリームからのパケットは、並び替えにより受信機で混ざり合う可能性があります。そのため、複数の RTP ストリームを受信するために装備された {{RTCRtpReceiver}} は、受信したパケットを正しく順序付け、潜在的な損失イベントを認識し、それに対応することができる必要があります。このシナリオでの正しい操作は自明ではないため、本仕様の実装ではオプションとなります。
           </p>
           <section class="informative" id="rtcrtpencodingspatialsim-example*">
             <h3>
@@ -11167,79 +11167,73 @@ async function onOffHold() {
           <dfn>RTCDtlsTransport</dfn> Interface
         </h3>
         <p>
-          The {{RTCDtlsTransport}} interface allows an application access to
-          information about the Datagram Transport Layer Security (DTLS)
-          transport over which RTP and RTCP packets are sent and received by
-          {{RTCRtpSender}} and {{RTCRtpReceiver}} objects, as well other data
-          such as SCTP packets sent and received by data channels. In
-          particular, DTLS adds security to an underlying transport, and the
-          {{RTCDtlsTransport}} interface allows access to information about the
-          underlying transport and the security added. {{RTCDtlsTransport}}
-          objects are constructed as a result of calls to
-          {{RTCPeerConnection/setLocalDescription()}} and
-          {{RTCPeerConnection/setRemoteDescription()}}. Each
-          {{RTCDtlsTransport}} object represents the DTLS transport layer for
-          the RTP or RTCP {{RTCIceTransport/component}} of a specific
-          {{RTCRtpTransceiver}}, or a group of {{RTCRtpTransceiver}}s if such a
-          group has been negotiated via [[RFC8843]].
+        <!--
+          The {{RTCDtlsTransport}} interface allows an application access to information about the Datagram Transport Layer Security (DTLS) transport over which RTP and RTCP packets are sent and received by {{RTCRtpSender}} and {{RTCRtpReceiver}} objects, as well other data such as SCTP packets sent and received by data channels. In particular, DTLS adds security to an underlying transport, and the {{RTCDtlsTransport}} interface allows access to information about the underlying transport and the security added. {{RTCDtlsTransport}} objects are constructed as a result of calls to {{RTCPeerConnection/setLocalDescription()}} and {{RTCPeerConnection/setRemoteDescription()}}. Each {{RTCDtlsTransport}} object represents the DTLS transport layer for the RTP or RTCP {{RTCIceTransport/component}} of a specific {{RTCRtpTransceiver}}, or a group of {{RTCRtpTransceiver}}s if such a group has been negotiated via [[RFC8843]].
+        -->
+        {{RTCDtlsTransport}} インターフェースは、{{RTCRtpSender}} と {{RTCRtpReceiver}} オブジェクトが RTP パケットと RTCP パケットを送受信する際の DTLS（Datagram Transport Layer Security）トランスポートに関する情報へのアプリケーションのアクセスを可能にします。特に、DTLS は基礎となるトランスポートにセキュリティを追加します。{{RTCDtlsTransport}} インターフェースは、基礎となるトランスポートと追加されたセキュリティに関する情報へのアクセスを可能にします。{{RTCDtlsTransport}} オブジェクトは、{{RTCPeerConnection/setLocalDescription()}} と {{RTCPeerConnection/setRemoteDescription()}} の呼び出しの結果として構築されます。各 {{RTCDtlsTransport}} オブジェクトは、特定の {{RTCRtpTransceiver}} の RTP または RTCP {{RTCIceTransport/component}}、または [[RFC8843]] でネゴシエートされた {{RTCRtpTransceiver}} のグループの DTLS トランスポート層を表します。
         </p>
         <div class="note">
-          A new DTLS association for an existing {{RTCRtpTransceiver}} will be
-          represented by an existing {{RTCDtlsTransport}} object, whose
-          {{RTCDtlsTransport/state}} will be updated accordingly, as opposed to
-          being represented by a new object.
+        <!--
+          A new DTLS association for an existing {{RTCRtpTransceiver}} will be represented by an existing {{RTCDtlsTransport}} object, whose {{RTCDtlsTransport/state}} will be updated accordingly, as opposed to being represented by a new object.
+        -->
+          既存の {{RTCRtpTransceiver}} に対する新しい DTLS アソシエーションは、既存の {{RTCDtlsTransport}} オブジェクトで表現され、その {{RTCDtlsTransport/state}} は、新しいオブジェクトで表現されるのではなく、適宜更新されます。
         </div>
         <p data-tests="RTCDtlsTransport-getRemoteCertificates.html">
-          An {{RTCDtlsTransport}} has a <dfn data-dfn-for="RTCDtlsTransport">[[\DtlsTransportState]]</dfn>
-          internal slot initialized to {{RTCDtlsTransportState/"new"}} and a
-          <dfn data-dfn-for="RTCDtlsTransport">[[\RemoteCertificates]]</dfn> slot initialized to an empty list.
+        <!--
+          An {{RTCDtlsTransport}} has a <dfn data-dfn-for="RTCDtlsTransport">[[\DtlsTransportState]]</dfn> internal slot initialized to {{RTCDtlsTransportState/"new"}} and a <dfn data-dfn-for="RTCDtlsTransport">[[\RemoteCertificates]]</dfn> slot initialized to an empty list.
+        -->
+          {{RTCDtlsTransport}}は、{{RTCDtlsTransportState/"new"}} に初期化された <dfn data-dfn-for="RTCDtlsTransport">[[\DtlsTransportState]]</dfn> の内部スロットと、空のリストに初期化された <dfn data-dfn-for="RTCDtlsTransport">[[\DtlsTransportState]]</dfn> のスロットを持っています。
         </p>
         <p>
-          When the underlying DTLS transport experiences an error, such as a
-          certificate validation failure, or a fatal alert (see [[RFC5246]]
-          section 7.2), the user agent MUST queue a task that runs the
-          following steps:
+        <!--
+          When the underlying DTLS transport experiences an error, such as a certificate validation failure, or a fatal alert (see [[RFC5246]] section 7.2), the user agent MUST queue a task that runs the following steps:
+        -->
+          基礎となる DTLS トランスポートに、証明書の検証失敗や致命的な警告（[[RFC5246]] セクション 7.2 参照）などのエラーが発生した場合、ユーザーエージェントは、以下のステップを実行するタスクをキューに入れなければならない（MUST）とされています。
         </p>
         <ol>
           <li class="no-test-needed">
             <p>
-              Let <var>transport</var> be the {{RTCDtlsTransport}} object to
-              receive the state update and error notification.
+            <!--
+              Let <var>transport</var> be the {{RTCDtlsTransport}} object to receive the state update and error notification.
+            -->
+              <var>transport</var> を、状態の更新やエラー通知を受け取る {{RTCDtlsTransport}} オブジェクトとします。
             </p>
           </li>
           <li>
             <p>
-              If the state of <var>transport</var> is already
-              {{RTCDtlsTransportState/"failed"}}, abort these steps.
+            <!--
+              If the state of <var>transport</var> is already {{RTCDtlsTransportState/"failed"}}, abort these steps.
+            -->
+              <var>transport</var> の状態がすでに {{RTCDtlsTransportState/"failed"}} である場合、これらのステップを中止します。
             </p>
           </li>
           <li data-tests="protocol/dtls-fingerprint-validation.html">
             <p>
-              Set <var>transport</var>.{{RTCDtlsTransport/[[DtlsTransportState]]}} to
-              {{RTCDtlsTransportState/"failed"}}.
+            <!--
+              Set <var>transport</var>.{{RTCDtlsTransport/[[DtlsTransportState]]}} to {{RTCDtlsTransportState/"failed"}}.
+            -->
+              <var>transport</var>.{{RTCDtlsTransport/[[DtlsTransportState]]}} を {{RTCDtlsTransportState/"failed"}} に設定します。
             </p>
           </li>
           <li>
             <p>
-              [= Fire an event =] named {{RTCDtlsTransport/error}} using the
-              {{RTCErrorEvent}} interface with its errorDetail attribute set to
-              either {{RTCErrorDetailType/"dtls-failure"}} or
-              {{RTCErrorDetailType/"fingerprint-failure"}}, as appropriate, and
-              other fields set as described under the {{RTCErrorDetailType}}
-              enum description, at <var>transport</var>.
+            <!--
+              [= Fire an event =] named {{RTCDtlsTransport/error}} using the {{RTCErrorEvent}} interface with its errorDetail attribute set to either {{RTCErrorDetailType/"dtls-failure"}} or {{RTCErrorDetailType/"fingerprint-failure"}}, as appropriate, and other fields set as described under the {{RTCErrorDetailType}} enum description, at <var>transport</var>.
+            -->
+            [= Fire an event = ] {{RTCDtlsTransport/error}} という名前のイベントを、{{RTCErrorEvent}} を使用して、その errorDetail 属性を {{RTCErrorDetailType/"dtls-failure"}} または {{RTCErrorDetailType/"fingerprint-failure"}} に設定し、その他のフィールドを {{RTCErrorDetailType} enum description で説明されているように設定して、<var>transport</var> に配置したインターフェース。
             </p>
           </li>
           <li>
             <p>
-              [= Fire an event =] named {{RTCDtlsTransport/statechange}} at
-              <var>transport</var>.
+              [= Fire an event =] named {{RTCDtlsTransport/statechange}} at <var>transport</var>.
             </p>
           </li>
         </ol>
         <p>
-          When the underlying DTLS transport needs to update the state of the
-          corresponding {{RTCDtlsTransport}} object for any other reason, the
-          user agent MUST queue a task that runs the following steps:
+        <!--
+          When the underlying DTLS transport needs to update the state of the corresponding {{RTCDtlsTransport}} object for any other reason, the user agent MUST queue a task that runs the following steps:
+        -->
+          基礎となるDTLSトランスポートが他の理由で対応する {{RTCDtlsTransport}} オブジェクトの状態を更新する必要がある場合、ユーザーエージェントは以下のステップを実行するタスクをキューに入れなければなりません（MUST）:
         </p>
         <ol>
           <li class="no-test-needed">
