@@ -1062,8 +1062,10 @@
                     <dfn data-idl="">closed</dfn>
                   </td>
                   <td>
-                    The {{RTCPeerConnection}} object's {{RTCPeerConnection/[[IsClosed]]}}
-                    slot is <code>true</code>.
+                  <!--
+                    The {{RTCPeerConnection}} object's {{RTCPeerConnection/[[IsClosed]]}} slot is <code>true</code>.
+                  -->
+                    {{RTCPeerConnection}} オブジェクトの {{RTCPeerConnection/[[IsClosed]]}} スロットは <code>true</code> です。
                   </td>
                 </tr>
                 <tr>
@@ -1072,9 +1074,10 @@
                     <dfn data-idl="">failed</dfn>
                   </td>
                   <td>
-                    The previous state doesn't apply and any
-                    {{RTCIceTransport}}s are in the
-                    {{RTCIceTransportState/"failed"}} state.
+                      <!--
+                    The previous state doesn't apply and any {{RTCIceTransport}}s are in the {{RTCIceTransportState/"failed"}} state.
+                      -->
+                    前の状態は適用されず、すべての {{RTCIceTransportState/"failed"}} 状態になります。
                   </td>
                 </tr>
                 <tr>
@@ -1158,68 +1161,63 @@
       </section>
       <section>
         <h3>
+        <!--
           RTCPeerConnection Interface
+        -->
+          RTCPeerConnection インターフェース
         </h3>
         <p>
-          The [[!RFC8829]] specification, as a whole, describes the details of how
-          the {{RTCPeerConnection}} operates. References to specific
-          subsections of [[!RFC8829]] are provided as appropriate.
+        <!--
+          The [[!RFC8829]] specification, as a whole, describes the details of how the {{RTCPeerConnection}} operates. References to specific subsections of [[!RFC8829]] are provided as appropriate.
+        -->
+          [[!RFC8829]] 仕様は、全体として {{RTCPeerConnection}} の動作方法の詳細を記述しています。必要に応じて、[[!RFC8829]] の特定のサブセクションへの参照が提供されます。
         </p>
         <section>
           <h4>
             Operation
           </h4>
           <p>
-            Calling <code>new
-            {{RTCPeerConnection}}(<var>configuration</var>)</code> creates an
-            {{RTCPeerConnection}} object.
+          <!--
+            Calling <code>new {{RTCPeerConnection}}(<var>configuration</var>)</code> creates an {{RTCPeerConnection}} object.
+          -->
+            <code>new {{RTCPeerConnection}}(<var>configuration</var>)</code> を呼び出すと、{{RTCPeerConnection}} オブジェクトが生成されます。
           </p>
           <p>
-            <var>configuration</var>.{{RTCConfiguration/iceServers}} contains
-            information used to find and access the servers used by ICE. The
-            application can supply multiple servers of each type, and any TURN
-            server MAY also be used as a STUN server for the purposes of
-            gathering server reflexive candidates.
+          <!--
+            <var>configuration</var>.{{RTCConfiguration/iceServers}} contains information used to find and access the servers used by ICE. The application can supply multiple servers of each type, and any TURN server MAY also be used as a STUN server for the purposes of gathering server reflexive candidates.
+          -->
+            <var>configuration</var>.{{RTCConfiguration/iceServers}} には、ICE が使用するサーバーを見つけてアクセスするための情報が含まれています。アプリケーションは各タイプの複数のサーバーを提供することができ、任意の TURN サーバーは、サーバーの反射候補を収集する目的で STUN サーバーとしても使用できます(MAY)。
           </p>
           <p>
-            An {{RTCPeerConnection}} object has a <dfn>signaling state</dfn>, a
-            <dfn>connection state</dfn>, an <dfn>ICE gathering state</dfn>, and
-            an <dfn>ICE connection state</dfn>. These are initialized when the
-            object is created.
+          <!--
+            An {{RTCPeerConnection}} object has a <dfn>signaling state</dfn>, a <dfn>connection state</dfn>, an <dfn>ICE gathering state</dfn>, and an <dfn>ICE connection state</dfn>. These are initialized when the object is created.
+          -->
+            {{RTCPeerConnection}} オブジェクトは、<dfn>signaling state</dfn>、<dfn>connection state</dfn>、<dfn>ICE gathering state</dfn>、<dfn>ICE connection state</dfn>を持っています。これらは、オブジェクトが作成されたときに初期化されます。
           </p>
           <p data-link-for="RTCPeerConnection">
-            The ICE protocol implementation of an {{RTCPeerConnection}} is
-            represented by an <dfn>ICE agent</dfn> [[RFC5245]]. Certain
-            {{RTCPeerConnection}} methods involve interactions with the [= ICE
-            Agent =], namely {{addIceCandidate}}, {{setConfiguration}},
-            {{setLocalDescription}}, {{setRemoteDescription}} and {{close}}.
-            These interactions are described in the relevant sections in this
-            document and in [[!RFC8829]]. The [= ICE Agent =] also provides
-            indications to the user agent when the state of its internal
-            representation of an {{RTCIceTransport}} changes, as described in
-            <a href="#rtcicetransport"></a>.
+          <!--
+            The ICE protocol implementation of an {{RTCPeerConnection}} is represented by an <dfn>ICE agent</dfn> [[RFC5245]]. Certain {{RTCPeerConnection}} methods involve interactions with the [= ICE Agent =], namely {{addIceCandidate}}, {{setConfiguration}}, {{setLocalDescription}}, {{setRemoteDescription}} and {{close}}.  These interactions are described in the relevant sections in this document and in [[!RFC8829]]. The [= ICE Agent =] also provides indications to the user agent when the state of its internal representation of an {{RTCIceTransport}} changes, as described in <a href="#rtcicetransport"></a>.
+          -->
+          {{RTCPeerConnection}} の ICE プロトコル実装は、<dfn>ICE agent</dfn> [[RFC5245]] によって表されます。特定の {{RTCPeerConnection}} メソッドは、{{addIceCandidate}}、{{setConfiguration}}、{{setLocalDescription}}、{{setRemoteDescription}}、{{close}} という [= ICE Agent =] との相互作用を伴います。これらのインタラクションについては、本ドキュメントの関連セクションおよび [[!RFC8829]] に記載されています。また、[= ICE Agent =] は，<a href="#rtcicetransport"></a>で説明されているように、{{RTCIceTransport}} の内部表現の状態が変化したときに，ユーザエージェントに指示を与える。
+
           </p>
           <p>
-            The task source for the tasks listed in this section is the [=
-            networking task source =].
+          <!--
+            The task source for the tasks listed in this section is the [= networking task source =].
+          -->
+            このセクションに記載されているタスクのタスクソースは、[= networking task source =]です。
           </p>
           <p class="note" data-link-for="RTCPeerConnection">
-            The state of the SDP negotiation is represented by the [= signaling
-            state =] and the internal variables
-            {{RTCPeerConnection/[[CurrentLocalDescription]]}},
-            {{RTCPeerConnection/[[CurrentRemoteDescription]]}},
-            {{RTCPeerConnection/[[PendingLocalDescription]]}} and
-            {{RTCPeerConnection/[[PendingRemoteDescription]]}}. These are only set inside the
-            {{setLocalDescription}} and {{setRemoteDescription}} operations,
-            and modified by the {{addIceCandidate}} operation and the [=
-            surface a candidate =] procedure. In each case, all the
-            modifications to all the five variables are completed before the
-            procedures fire any events or invoke any callbacks, so the
-            modifications are made visible at a single point in time.
+          <!--
+            The state of the SDP negotiation is represented by the [= signaling state =] and the internal variables {{RTCPeerConnection/[[CurrentLocalDescription]]}}, {{RTCPeerConnection/[[CurrentRemoteDescription]]}}, {{RTCPeerConnection/[[PendingLocalDescription]]}} and {{RTCPeerConnection/[[PendingRemoteDescription]]}}. These are only set inside the {{setLocalDescription}} and {{setRemoteDescription}} operations, and modified by the {{addIceCandidate}} operation and the [= surface a candidate =] procedure. In each case, all the modifications to all the five variables are completed before the procedures fire any events or invoke any callbacks, so the modifications are made visible at a single point in time.
+          -->
+            SDPネゴシエーションの状態は、[= signaling state =] と内部変数 {{RTCPeerConnection/[[CurrentLocalDescription]]}}、{{RTCPeerConnection/[[CurrentRemoteDescription]]}}、{{RTCPeerConnection/[[PendingLocalDescription]]}} と {{RTCPeerConnection/[[PendingRemoteDescription]]}} で表されます。これらは、{{setLocalDescription}} と {{setRemoteDescription}} の操作の中でのみ設定され、{{addIceCandidate}} の操作と [= surface a candidate =] の手順で修正されます。いずれの場合も、5つの変数に対するすべての変更は、プロシージャがイベントを発生させたりコールバックを呼び出したりする前に完了しているので、変更内容は1つの時点で可視化されます。
           </p>
           <p>
-            As one of the <a>unloading document cleanup steps</a>, run the
-            following steps:
+          <!--
+            As one of the <a>unloading document cleanup steps</a>, run the following steps:
+          -->
+            <a>unloading document cleanup steps</a> の一つとして、以下の手順を実行します。
           </p>
           <ol>
             <li class="untestable">
