@@ -546,7 +546,7 @@
         </section>
         <section data-tests="RTCConfiguration-iceTransportPolicy.html">
           <h4>
-            <dfn>RTCIceTransportPolicy</dfn> Enum
+            <dfn>RTCIceTransportPolicy</dfn> 列挙型
           </h4>
           <p>
             <span data-jsep="pc-constructor">[[!RFC8829]]</span> に記載されているように、 {{RTCConfiguration/iceTransportPolicy}} のメンバが指定されている場合、ブラウザがアプリケーションに許可された候補を表示するために使用する<span data-jsep="ice-candidate-policy"> ICE 候補ポリシー[[!RFC8829]]</span> が定義されます。
@@ -598,7 +598,7 @@
         </section>
         <section data-tests="RTCConfiguration-bundlePolicy.html">
           <h4>
-            <dfn>RTCBundlePolicy</dfn> Enum
+            <dfn>RTCBundlePolicy</dfn> 列挙型
           </h4>
           <p>
             <span data-jsep="pc-constructor">[[!RFC8829]]</span> に記載されているように、バンドルポリシーは、リモートエンドポイントがバンドルを認識していない場合にどのメディアトラックをネゴシエートするか、どの ICE 候補を収集するかに影響します。リモートエンドポイントがバンドルを認識している場合、すべてのメディアトラックとデータチャンネルが同じトランスポートにバンドルされます。
@@ -652,7 +652,7 @@
         </section>
         <section data-tests="RTCConfiguration-rtcpMuxPolicy.html">
           <h4>
-            <dfn>RTCRtcpMuxPolicy</dfn> Enum
+            <dfn>RTCRtcpMuxPolicy</dfn> 列挙型
           </h4>
           <p>
             <span data-jsep="pc-constructor">[[!RFC8829]]</span> に記載されているように、 {{RTCRtcpMuxPolicy}} は、非多重化 RTCP をサポートするために集められる ICE 候補に影響を与えます。この仕様で定義されている値は {{RTCRtcpMuxPolicy/"require"}} のみです。
@@ -1043,7 +1043,7 @@
         </section>
         <section>
           <h4>
-            <dfn>RTCIceConnectionState</dfn> Enum
+            <dfn>RTCIceConnectionState</dfn> 列挙型
           </h4>
           <div>
             <pre class="idl">enum RTCIceConnectionState {
@@ -15643,78 +15643,65 @@ async function gatherStats(pc) {
     </section>
     <section>
       <h2>
+      <!--
         Media Stream API Extensions for Network Use
+        -->
+        ネットワーク用メディアストリーム API 拡張
       </h2>
       <section>
         <h3>
+        <!--
           Introduction
+        -->
+          はじめに
         </h3>
         <p class="no-test-needed">
-          The {{MediaStreamTrack}} interface, as defined in the
-          [[!GETUSERMEDIA]] specification, typically represents a stream of
-          data of audio or video. One or more {{MediaStreamTrack}}s can be
-          collected in a {{MediaStream}} (strictly speaking, a {{MediaStream}}
-          as defined in [[!GETUSERMEDIA]] may contain zero or more
-          {{MediaStreamTrack}} objects).
+        <!--
+          The {{MediaStreamTrack}} interface, as defined in the [[!GETUSERMEDIA]] specification, typically represents a stream of data of audio or video. One or more {{MediaStreamTrack}}s can be collected in a {{MediaStream}} (strictly speaking, a {{MediaStream}} as defined in [[!GETUSERMEDIA]] may contain zero or more {{MediaStreamTrack}} objects).
+        -->
+           [[[!GETUSERMEDIA]] 仕様で定義されている {{MediaStreamTrack}} インターフェースは、通常、オーディオまたはビデオのデータのストリームを表します。1つまたは複数の {{MediaStreamTrack}} を {{MediaStream}} に集めることができます。(厳密には、[[!GETUSERMEDIA]] で定義されている {{MediaStream}} には、0個以上の {{MediaStreamTrack}} オブジェクトを含めることができます)。
         </p>
         <p>
-          A {{MediaStreamTrack}} may be extended to represent a media flow that
-          either comes from or is sent to a remote peer (and not just the local
-          camera, for instance). The extensions required to enable this
-          capability on the {{MediaStreamTrack}} object will be described in
-          this section. How the media is transmitted to the peer is described
-          in [[RFC8834]], [[RFC7874]], and [[RFC8835]].
+        <!--
+          A {{MediaStreamTrack}} may be extended to represent a media flow that either comes from or is sent to a remote peer (and not just the local camera, for instance). The extensions required to enable this capability on the {{MediaStreamTrack}} object will be described in this section. How the media is transmitted to the peer is described in [[RFC8834]], [[RFC7874]], and [[RFC8835]].
+        -->
+          {{MediaStreamTrack}} は（ローカルカメラだけではなく）リモートピアから来る、またはリモートピアに送られるメディアフローを表すように拡張することができます。このセクションでは、{{MediaStreamTrack}} オブジェクトでこの機能を有効にするために必要な拡張機能について説明します。メディアを相手に送信する方法は、[[RFC8834]]、[[RFC7874]]、[[RFC8835]] に記載されています。
         </p>
         <p class="no-test-needed">
-          A {{MediaStreamTrack}} sent to another peer will appear as one and
-          only one {{MediaStreamTrack}} to the recipient. A peer is defined as
-          a user agent that supports this specification. In addition, the
-          sending side application can indicate what {{MediaStream}} object(s)
-          the {{MediaStreamTrack}} is a member of. The corresponding
-          {{MediaStream}} object(s) on the receiver side will be created (if
-          not already present) and populated accordingly.
+        <!--
+          A {{MediaStreamTrack}} sent to another peer will appear as one and only one {{MediaStreamTrack}} to the recipient. A peer is defined as a user agent that supports this specification. In addition, the sending side application can indicate what {{MediaStream}} object(s) the {{MediaStreamTrack}} is a member of. The corresponding {{MediaStream}} object(s) on the receiver side will be created (if not already present) and populated accordingly.
+        -->
+        他のピアに送信された {{MediaStreamTrack}} は、受信者には 1 つだけの {{MediaStreamTrack}} として表示されます。ピアとは、本仕様をサポートするユーザーエージェントと定義します。さらに、送信側のアプリケーションは、{{MediaStreamTrack}} がどの {{MediaStream}} オブジェクトのメンバであるかを示すことができます。受信側の対応する {{MediaStream}} オブジェクトは（まだ存在していなければ）作成され、それに応じて入力されます。
         </p>
         <p>
-          As also described earlier in this document, the objects
-          {{RTCRtpSender}} and {{RTCRtpReceiver}} can be used by the
-          application to get more fine grained control over the transmission
-          and reception of {{MediaStreamTrack}}s.
+        <!--
+          As also described earlier in this document, the objects {{RTCRtpSender}} and {{RTCRtpReceiver}} can be used by the application to get more fine grained control over the transmission and reception of {{MediaStreamTrack}}s.
+        -->
+          このドキュメントの前半でも述べたように、{{RTCRtpSender}} と {{RTCRtpReceiver}} というオブジェクトをアプリケーションが使用することで、{{MediaStreamTrack}} の送受信をより細かく制御することができます。
         </p>
         <p class="untestable">
-          Channels are the smallest unit considered in the Media Capture and
-          Streams specification. Channels are intended to be encoded together
-          for transmission as, for instance, an RTP payload type. All of the
-          channels that a codec needs to encode jointly MUST be in the same
-          {{MediaStreamTrack}} and the codecs SHOULD be able to encode, or
-          discard, all the channels in the track.
+        <!--
+          Channels are the smallest unit considered in the Media Capture and Streams specification. Channels are intended to be encoded together for transmission as, for instance, an RTP payload type. All of the channels that a codec needs to encode jointly MUST be in the same {{MediaStreamTrack}} and the codecs SHOULD be able to encode, or discard, all the channels in the track.
+        -->
+          チャンネルは、Media Capture and Streams 仕様で考慮されている最小の単位です。チャンネルは、例えば RTP ペイロードタイプとして送信するために一緒にエンコードされることを意図しています。コーデックが共同でエンコードする必要のあるすべてのチャンネルは、同じ {{MediaStreamTrack}} 内になければならず（MUST）、コーデックはトラック内のすべてのチャンネルをエンコード、または破棄できるべきである（SHOULD）とされています。
         </p>
         <p class="no-test-needed">
-          The concepts of an input and output to a given {{MediaStreamTrack}}
-          apply in the case of {{MediaStreamTrack}} objects transmitted over
-          the network as well. A {{MediaStreamTrack}} created by an
-          {{RTCPeerConnection}} object (as described previously in this
-          document) will take as input the data received from a remote peer.
-          Similarly, a {{MediaStreamTrack}} from a local source, for instance a
-          camera via [[!GETUSERMEDIA]], will have an output that represents
-          what is transmitted to a remote peer if the object is used with an
-          {{RTCPeerConnection}} object.
+        <!--
+          The concepts of an input and output to a given {{MediaStreamTrack}} apply in the case of {{MediaStreamTrack}} objects transmitted over the network as well. A {{MediaStreamTrack}} created by an {{RTCPeerConnection}} object (as described previously in this document) will take as input the data received from a remote peer.  Similarly, a {{MediaStreamTrack}} from a local source, for instance a camera via [[!GETUSERMEDIA]], will have an output that represents what is transmitted to a remote peer if the object is used with an {{RTCPeerConnection}} object.
+        -->
+          ある {{MediaStreamTrack}} への入力と出力の概念は、ネットワーク上で送信される {{MediaStreamTrack}} オブジェクトの場合にも適用されます。{{RTCPeerConnection}} オブジェクトによって作成された {{MediaStreamTrack}} は、リモートピアから受信したデータを入力として受け取ります。 同様に、[[!GETUSERMEDIA]] 経由のカメラなどのローカルソースからの {{MediaStreamTrack}} は、オブジェクトが {{RTCPeerConnection}} オブジェクトと一緒に使用されている場合、リモートピアに送信されるものを表す出力を持ちます。
         </p>
         <p class="no-test-needed">
-          The concept of duplicating {{MediaStream}} and {{MediaStreamTrack}}
-          objects as described in [[!GETUSERMEDIA]] is also applicable here.
-          This feature can be used, for instance, in a video-conferencing
-          scenario to display the local video from the user's camera and
-          microphone in a local monitor, while only transmitting the audio to
-          the remote peer (e.g. in response to the user using a "video mute"
-          feature). Combining different {{MediaStreamTrack}} objects into new
-          {{MediaStream}} objects is useful in certain situations.
+        <!--
+          The concept of duplicating {{MediaStream}} and {{MediaStreamTrack}} objects as described in [[!GETUSERMEDIA]] is also applicable here.  This feature can be used, for instance, in a video-conferencing scenario to display the local video from the user's camera and microphone in a local monitor, while only transmitting the audio to the remote peer (e.g. in response to the user using a "video mute" feature). Combining different {{MediaStreamTrack}} objects into new {{MediaStream}} objects is useful in certain situations.
+        -->
+          [[!GETUSERMEDIA]] で説明されている {{MediaStream}} と {{MediaStreamTrack}} オブジェクトの複製の概念は、ここでも適用できます。 この機能は、例えば、ビデオ会議のシナリオにおいて、ユーザーのカメラとマイクからのローカルビデオをローカルモニターに表示し、音声のみをリモートピアに送信するために使用できます（例えば、ユーザーが「ビデオミュート」機能を使用したことに対応しています）。異なる {{MediaStreamTrack}} オブジェクトを新しい {{MediaStream}} オブジェクトに結合することは、特定の状況で有用です。
         </p>
         <p class="note">
-          In this document, we only specify aspects of the following objects
-          that are relevant when used along with an {{RTCPeerConnection}}.
-          Please refer to the original definitions of the objects in the
-          [[!GETUSERMEDIA]] document for general information on using
-          {{MediaStream}} and {{MediaStreamTrack}}.
+        <!--
+          In this document, we only specify aspects of the following objects that are relevant when used along with an {{RTCPeerConnection}}.  Please refer to the original definitions of the objects in the [[!GETUSERMEDIA]] document for general information on using {{MediaStream}} and {{MediaStreamTrack}}.
+        -->
+        このドキュメントでは、{{RTCPeerConnection}} と一緒に使用する際に関連する以下のオブジェクトの側面のみを指定しています。{{MediaStream}} と {{MediaStreamTrack}} の使用に関する一般的な情報は、[[!GETUSERMEDIA]] ドキュメントのオブジェクトのオリジナルの定義を参照してください。
         </p>
       </section>
       <section>
