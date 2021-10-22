@@ -15646,7 +15646,7 @@ async function gatherStats(pc) {
       <!--
         Media Stream API Extensions for Network Use
         -->
-        ネットワーク用メディアストリーム API 拡張
+        ネットワーク用 Media Stream API 拡張
       </h2>
       <section>
         <h3>
@@ -15659,7 +15659,7 @@ async function gatherStats(pc) {
         <!--
           The {{MediaStreamTrack}} interface, as defined in the [[!GETUSERMEDIA]] specification, typically represents a stream of data of audio or video. One or more {{MediaStreamTrack}}s can be collected in a {{MediaStream}} (strictly speaking, a {{MediaStream}} as defined in [[!GETUSERMEDIA]] may contain zero or more {{MediaStreamTrack}} objects).
         -->
-           [[[!GETUSERMEDIA]] 仕様で定義されている {{MediaStreamTrack}} インターフェースは、通常、オーディオまたはビデオのデータのストリームを表します。1つまたは複数の {{MediaStreamTrack}} を {{MediaStream}} に集めることができます。(厳密には、[[!GETUSERMEDIA]] で定義されている {{MediaStream}} には、0個以上の {{MediaStreamTrack}} オブジェクトを含めることができます)。
+           [[!GETUSERMEDIA]] 仕様で定義されている {{MediaStreamTrack}} インターフェースは、通常、オーディオまたはビデオのデータのストリームを表します。1つまたは複数の {{MediaStreamTrack}} を {{MediaStream}} に集めることができます。(厳密には、[[!GETUSERMEDIA]] で定義されている {{MediaStream}} には、0個以上の {{MediaStreamTrack}} オブジェクトを含めることができます)。
         </p>
         <p>
         <!--
@@ -15713,24 +15713,22 @@ async function gatherStats(pc) {
             id
           </h4>
           <p class="needs-test">
-            The {{MediaStream/id}} attribute specified in {{MediaStream}}
-            returns an id that is unique to this stream, so that streams can be
-            recognized at the remote end of the {{RTCPeerConnection}} API.
+          <!--
+            The {{MediaStream/id}} attribute specified in {{MediaStream}} returns an id that is unique to this stream, so that streams can be recognized at the remote end of the {{RTCPeerConnection}} API.
+          -->
+          {{MediaStream}} で指定された {{MediaStream/id}} 属性は、{{RTCPeerConnection}} APIのリモート側でストリームを認識できるように、このストリームに固有の id を返します。
           </p>
           <p class="needs-test">
-            When a {{MediaStream}} is created to represent a stream obtained
-            from a remote peer, the {{MediaStream/id}} attribute is initialized
-            from information provided by the remote source.
+          <!--
+            When a {{MediaStream}} is created to represent a stream obtained from a remote peer, the {{MediaStream/id}} attribute is initialized from information provided by the remote source.
+          -->
+            リモートピアから取得したストリームを表す {{MediaStream}} が作成されると、{{MediaStream/id}} 属性はリモートソースから提供された情報で初期化されます。
           </p>
           <p class="note">
-            The {{MediaStream/id}} of a {{MediaStream}} object is unique to the
-            source of the stream, but that does not mean it is not possible to
-            end up with duplicates. For example, the tracks of a locally
-            generated stream could be sent from one user agent to a remote peer
-            using {{RTCPeerConnection}} and then sent back to the original user
-            agent in the same manner, in which case the original user agent
-            will have multiple streams with the same id (the locally-generated
-            one and the one received from the remote peer).
+          <!--
+            The {{MediaStream/id}} of a {{MediaStream}} object is unique to the source of the stream, but that does not mean it is not possible to end up with duplicates. For example, the tracks of a locally generated stream could be sent from one user agent to a remote peer using {{RTCPeerConnection}} and then sent back to the original user agent in the same manner, in which case the original user agent will have multiple streams with the same id (the locally-generated one and the one received from the remote peer).
+          -->
+            {{MediaStream/id}} オブジェクトの {{MediaStream/id}} は、ストリームのソースに固有のものですが、だからといって重複してしまう可能性がないわけではありません。例えば、ローカルに生成されたストリームのトラックは、あるユーザーエージェントから {{RTCPeerConnection}} を使用してリモートピアに送信され、その後同じ方法で元のユーザーエージェントに送り返される可能性があります。この場合、元のユーザーエージェントは同じ id を持つ複数のストリーム（ローカルに生成されたものとリモートピアから受信したもの）を持つことになります。
           </p>
         </section>
       </section>
@@ -15739,43 +15737,40 @@ async function gatherStats(pc) {
           MediaStreamTrack
         </h3>
         <p class="needs-test">
+          <!--
           A {{MediaStreamTrack}} object's reference to its {{MediaStream}} in
           the non-local media source case (an RTP source, as is the case for
           each {{MediaStreamTrack}} associated with an {{RTCRtpReceiver}}) is
           always strong.
+          -->
         </p>
         <p data-tests="RTCPeerConnection-remote-track-mute.https.html">
+          <!--
           Whenever an {{RTCRtpReceiver}} receives data on an RTP source whose
           corresponding {{MediaStreamTrack}} is muted, but not ended, and the
           {{RTCRtpTransceiver/[[Receptive]]}} slot of the {{RTCRtpTransceiver}} object the
           {{RTCRtpReceiver}} is a member of is <code>true</code>, it MUST queue
           a task to [= set the muted state =] of the corresponding
           {{MediaStreamTrack}} to <code>false</code>.
+          -->
         </p>
         <p class="needs-test">
-          When one of the SSRCs for RTP source media streams received by an
-          {{RTCRtpReceiver}} is removed either due to reception of a BYE or via
-          timeout, it MUST queue a task to [= set the muted state =] of the
-          corresponding {{MediaStreamTrack}} to <code>true</code>. Note that
-          {{RTCPeerConnection/setRemoteDescription}} can also lead to [= set
-          the muted state | the setting of the muted state =] of the
-          {{RTCRtpReceiver/track}} to the value <code>true</code>.
+          <!--
+          When one of the SSRCs for RTP source media streams received by an {{RTCRtpReceiver}} is removed either due to reception of a BYE or via timeout, it MUST queue a task to [= set the muted state =] of the corresponding {{MediaStreamTrack}} to <code>true</code>. Note that {{RTCPeerConnection/setRemoteDescription}} can also lead to [= set the muted state | the setting of the muted state =] of the {{RTCRtpReceiver/track}} to the value <code>true</code>.
+          -->
+          {{RTCRtpReceiver}} が受信した RTP ソースメディアストリームの SSRC の1つが、BYE の受信またはタイムアウトによって削除された場合、{{MediaStreamTrack}} の対応する {{MediaStreamTrack}} の [= set the muted state =] を <code>true</code> にするタスクをキューに入れなければならない（MUST）。なお、{{RTCPeerConnection/setRemoteDescription}} は、{{RTCRtpReceiver/track}} の [= set the muted state | the setting of the muted state =] を <code>true</code> の値にすることにもつながる。
         </p>
         <p class="no-test-needed">
-          The procedures <dfn data-lt="add the track" id="add-track">add a
-          track</dfn>, <dfn data-lt="remove the track" id="remove-track">remove
-          a track</dfn> and <dfn data-lt="set the muted state" id=
-          "set-track-muted">set a track's muted state</dfn> are specified in
-          [[!GETUSERMEDIA]].
+          <!--
+          The procedures <dfn data-lt="add the track" id="add-track">add a track</dfn>, <dfn data-lt="remove the track" id="remove-track">remove a track</dfn> and <dfn data-lt="set the muted state" id= "set-track-muted">set a track's muted state</dfn> are specified in [[!GETUSERMEDIA]].
+          -->
+          <dfn data-lt="add the track" id="add-track">トラックを追加する</dfn>、<dfn data-lt="remove the track" id="remove-track">トラックを削除する</dfn>、<dfn data-lt="set the muted state" id="set-track-muted">トラックのミュート状態を設定する</dfn>の手順は、[[!GETUSERMEDIA]] で指定されています。
         </p>
         <p class="untestable">
-          When a {{MediaStreamTrack}} track produced by an {{RTCRtpReceiver}}
-          <var>receiver</var> has <code class="gum">ended</code>
-          [[!GETUSERMEDIA]] (such as via a call to
-          <var>receiver</var>.{{RTCRtpReceiver/track}}.<code class=
-          "gum">stop</code>), the user agent MAY choose to free resources
-          allocated for the incoming stream, by for instance turning off the
-          decoder of <var>receiver</var>.
+          <!--
+          When a {{MediaStreamTrack}} track produced by an {{RTCRtpReceiver}} <var>receiver</var> has <code class="gum">ended</code> [[!GETUSERMEDIA]] (such as via a call to <var>receiver</var>.{{RTCRtpReceiver/track}}.<code class= "gum">stop</code>), the user agent MAY choose to free resources allocated for the incoming stream, by for instance turning off the decoder of <var>receiver</var>.
+          -->
+          {{RTCRtpReceiver}} <var>receiver</var> によって生成された {{MediaStreamTrack}} トラックが終了した場合 [[!GETUSERMEDIA]]（<var>receiver</var>.{{RTCRtpReceiver/track}}.<code class= "gum">stop</code> への呼び出しなど）、ユーザエージェントは、<var>receiver</var>のデコーダをオフにするなどして、受信ストリームに割り当てられたリソースを解放することを選択してもよい（MAY）。
         </p>
         <section>
           <h4>
@@ -15783,25 +15778,16 @@ async function gatherStats(pc) {
             MediaTrackConstraints and MediaTrackSettings
           </h4>
           <p class="no-test-needed">
-            The concept of constraints and constrainable properties, including
-            {{MediaTrackConstraints}} ({{MediaStreamTrack}}.<code class=
-            "gum">getConstraints()</code>, {{MediaStreamTrack}}.<code class=
-            "gum">applyConstraints()</code>), and {{MediaTrackSettings}}
-            ({{MediaStreamTrack}}.<code class="gum">getSettings()</code>) are
-            outlined in [[!GETUSERMEDIA]]. However, the constrainable
-            properties of tracks sourced from a peer connection are different
-            than those sourced by <code class="gum">getUserMedia()</code>; the
-            constraints and settings applicable to {{MediaStreamTrack}}s
-            sourced from a [= remote source =] are defined here. The settings
-            of a remote track represent the latest frame received.
+          <!--
+            The concept of constraints and constrainable properties, including {{MediaTrackConstraints}} ({{MediaStreamTrack}}.<code class= "gum">getConstraints()</code>, {{MediaStreamTrack}}.<code class= "gum">applyConstraints()</code>), and {{MediaTrackSettings}} ({{MediaStreamTrack}}.<code class="gum">getSettings()</code>) are outlined in [[!GETUSERMEDIA]]. However, the constrainable properties of tracks sourced from a peer connection are different than those sourced by <code class="gum">getUserMedia()</code>; the constraints and settings applicable to {{MediaStreamTrack}}s sourced from a [= remote source =] are defined here. The settings of a remote track represent the latest frame received.
+          -->
+            制約の概念と制約可能なプロパティ（{{MediaTrackConstraints}} を含む。({{MediaStreamTrack}}.<code class="gum">getConstraints()</code>, {{MediaStreamTrack}}.<code class="gum">applyConstraints()</code>)や {{MediaTrackSettings}} などの制約や制約可能なプロパティの概念があります。({{MediaStreamTrack}}.<code class="gum">getSettings()</code>)の概要は [[[!GETUSERMEDIA]] に記載されています。しかし、ピア接続からソースされたトラックの制約可能なプロパティは、<code class="gum">getUserMedia()</code> でソースされたものとは異なります。[= remote source =]からソースされた {{MediaStreamTrack}} に適用される制約と設定はここで定義されます。リモートトラックの設定は、受信した最新のフレームを表します。
           </p>
           <p class="needs-test">
-            {{MediaStreamTrack}}.<code class="gum">getCapabilities()</code>
-            MUST always return the empty set and
-            {{MediaStreamTrack}}.<code class="gum">applyConstraints()</code>
-            MUST always reject with <code class=
-            "gum">OverconstrainedError</code> on remote tracks for constraints
-            defined here.
+          <!--
+            {{MediaStreamTrack}}.<code class="gum">getCapabilities()</code> MUST always return the empty set and {{MediaStreamTrack}}.<code class="gum">applyConstraints()</code> MUST always reject with <code class= "gum">OverconstrainedError</code> on remote tracks for constraints defined here.
+          -->
+            {{MediaStreamTrack}}.<code class="gum">getCapabilities()</code> は、常に空のセットを返さなければならず、{{MediaStreamTrack}}.<code class="gum">applyConstraints()</code> は、ここで定義された制約に対して、リモートトラック上で常に<code class="gum">OverconstrainedError</code> で拒否しなければなりません。
           </p>
           <p class="needs-test">
             The following constrainable properties are defined to apply to
