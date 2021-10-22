@@ -415,7 +415,7 @@
         </section>
         <section>
           <h4>
-            <dfn>RTCIceCredentialType</dfn> Enum
+            <dfn>RTCIceCredentialType</dfn> 列挙型
           </h4>
           <div>
             <pre class="idl">enum RTCIceCredentialType {
@@ -744,7 +744,7 @@
         </h3>
         <section>
           <h4>
-            <dfn>RTCSignalingState</dfn> Enum
+            <dfn>RTCSignalingState</dfn> 列挙型
           </h4>
           <div>
             <pre class="idl">enum RTCSignalingState {
@@ -900,7 +900,7 @@
         </section>
         <section>
           <h4>
-            <dfn>RTCIceGatheringState</dfn> Enum
+            <dfn>RTCIceGatheringState</dfn> 列挙型
           </h4>
           <div>
             <pre class="idl">enum RTCIceGatheringState {
@@ -958,7 +958,7 @@
         </section>
         <section>
           <h4>
-            <dfn>RTCPeerConnectionState</dfn> Enum
+            <dfn>RTCPeerConnectionState</dfn> 列挙型
           </h4>
           <div>
             <pre class="idl">enum RTCPeerConnectionState {
@@ -1095,9 +1095,10 @@
                     <dfn data-idl="">disconnected</dfn>
                   </td>
                   <td>
-                    None of the previous states apply and any
-                    {{RTCIceTransport}}s are in the
-                    {{RTCIceTransportState/"disconnected"}} state.
+                  <!--
+                    None of the previous states apply and any {{RTCIceTransport}}s are in the {{RTCIceTransportState/"disconnected"}} state.
+                  -->
+                    これまでの状態は一切適用されず、どの {{RTCIceTransportState/"disconnected"}} も {{RTCIceTransportState/"disconnected"}} 状態になっています。
                   </td>
                 </tr>
                 <tr>
@@ -1106,11 +1107,10 @@
                     <dfn data-idl="">new</dfn>
                   </td>
                   <td>
-                    None of the previous states apply and all
-                    {{RTCIceTransport}}s are in the
-                    {{RTCIceTransportState/"new"}} or
-                    {{RTCIceTransportState/"closed"}} state, or there are no
-                    transports.
+                  <!--
+                    None of the previous states apply and all {{RTCIceTransport}}s are in the {{RTCIceTransportState/"new"}} or {{RTCIceTransportState/"closed"}} state, or there are no transports.
+                    -->
+                    これまでの状態がいずれも適用されず、すべての {{RTCIceTransportState/"new"}} または {{RTCIceTransportState/"closed"}} の状態にあるか、またはトランスポートが存在しない状態にあります。
                   </td>
                 </tr>
                 <tr>
@@ -1119,10 +1119,10 @@
                     <dfn data-idl="">checking</dfn>
                   </td>
                   <td>
-                    None of the previous states apply and any
-                    {{RTCIceTransport}}s are in the
-                    {{RTCIceTransportState/"new"}} or
-                    {{RTCIceTransportState/"checking"}} state.
+                <!--
+                    None of the previous states apply and any {{RTCIceTransport}}s are in the {{RTCIceTransportState/"new"}} or {{RTCIceTransportState/"checking"}} state.
+                -->
+                    以前の状態はいずれも適用されず、すべての {{RTCIceTransportState/"new"}} または {{RTCIceTransportState/"checking"}} の状態にあります。
                   </td>
                 </tr>
                 <tr>
@@ -1131,10 +1131,10 @@
                     <dfn data-idl="">completed</dfn>
                   </td>
                   <td>
-                    None of the previous states apply and all
-                    {{RTCIceTransport}}s are in the
-                    {{RTCIceTransportState/"completed"}} or
-                    {{RTCIceTransportState/"closed"}} state.
+                  <!--
+                    None of the previous states apply and all {{RTCIceTransport}}s are in the {{RTCIceTransportState/"completed"}} or {{RTCIceTransportState/"closed"}} state.
+                    -->
+                    これまでの状態はいずれも適用されず、すべての {{RTCIceTransportState/"completed"}} または {{RTCIceTransportState/"closed"}} の状態になっています。
                   </td>
                 </tr>
                 <tr>
@@ -1143,28 +1143,26 @@
                     <dfn data-idl="">connected</dfn>
                   </td>
                   <td>
-                    None of the previous states apply and all
-                    {{RTCIceTransport}}s are in the
-                    {{RTCIceTransportState/"connected"}},
-                    {{RTCIceTransportState/"completed"}} or
-                    {{RTCIceTransportState/"closed"}} state.
+                  <!--
+                    None of the previous states apply and all {{RTCIceTransport}}s are in the {{RTCIceTransportState/"connected"}}, {{RTCIceTransportState/"completed"}} or {{RTCIceTransportState/"closed"}} state.
+                    -->
+                    これまでの状態はいずれも適用されず、すべての {{RTCIceTransportState/"connected"}}、{{RTCIceTransportState/"completed"}}、{{RTCIceTransportState/"closed"}} のいずれかの状態にあります。
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
           <p>
-            The set of transports considered is the one
-            presently referenced by the PeerConnection's
-            [= set of transceivers =] and the PeerConnection's
-              <dfn data-dfn-for="RTCPeerConnection">[[\SctpTransport]]</dfn>
-              internal slot if not <code>null</code>.
+          <!--
+            The set of transports considered is the one presently referenced by the PeerConnection's [= set of transceivers =] and the PeerConnection's <dfn data-dfn-for="RTCPeerConnection">[[\SctpTransport]]</dfn> internal slot if not <code>null</code>.
+          -->
+            考慮されるトランスポートのセットは、PeerConnectionの [= set of transceivers =] と PeerConnection の <dfn data-dfn-for="RTCPeerConnection">[[\SctpTransport]]</dfn> の内部スロットが <code>null</code> でない場合に、現在参照されているものです。
           </p>
           <p>
-            Note that if an {{RTCIceTransport}} is discarded as a result of
-            signaling (e.g. RTCP mux or bundling), or created as a result of
-            signaling (e.g. adding a new [= media description =]), the state
-            may advance directly from one state to another.
+          <!--
+            Note that if an {{RTCIceTransport}} is discarded as a result of signaling (e.g. RTCP mux or bundling), or created as a result of signaling (e.g. adding a new [= media description =]), the state may advance directly from one state to another.
+           -->
+            なお、{{RTCIceTransport}} がシグナリングの結果（RTCP muxやbundlingなど）として破棄されたり、シグナリングの結果（新しい [= media description =] の追加など）として作成されたりした場合は、状態がある状態から別の状態に直接進むことがある。
           </p>
         </section>
       </section>
