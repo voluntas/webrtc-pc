@@ -271,7 +271,7 @@
             <!--
             <dfn>RTCConfiguration</dfn> Dictionary
             -->
-            <dfn>RTCConfiguration</dfn> ディクショナリ
+            <dfn>RTCConfiguration</dfn> 辞書
           </h4>
           <p>
           <!--
@@ -293,7 +293,7 @@
               <!--
                 Dictionary {{RTCConfiguration}} Members
               -->
-                ディクショナリ {{RTCConfiguration}} メンバー
+                辞書 {{RTCConfiguration}} メンバ
               </h2>
               <dl data-link-for="RTCConfiguration" data-dfn-for=
               "RTCConfiguration" class="dictionary-members">
@@ -451,10 +451,10 @@
         </section>
         <section>
           <h4>
-            <dfn>RTCIceServer</dfn> ディクショナリ
+            <dfn>RTCIceServer</dfn> 辞書
           </h4>
           <p>
-            {{RTCIceServer}} ディクショナリは、[= ICE Agent =] がピアとの接続を確立するために使用できる STUN および TURN サーバーを記述するために使用されます。
+            {{RTCIceServer}} 辞書は、[= ICE Agent =] がピアとの接続を確立するために使用できる STUN および TURN サーバーを記述するために使用されます。
           </p>
           <div>
             <pre class="idl">dictionary RTCIceServer {
@@ -465,7 +465,7 @@
 };</pre>
             <section>
               <h2>
-                Dictionary {{RTCIceServer}} Members
+                辞書 {{RTCIceServer}} のメンバ
               </h2>
               <dl data-link-for="RTCIceServer" data-dfn-for="RTCIceServer"
               class="dictionary-members">
@@ -549,7 +549,7 @@
             <dfn>RTCIceTransportPolicy</dfn> Enum
           </h4>
           <p>
-            <span data-jsep="pc-constructor">[[!RFC8829]]</span> に記載されているように、 {{RTCConfiguration/iceTransportPolicy}} のメンバーが指定されている場合、ブラウザがアプリケーションに許可された候補を表示するために使用する<span data-jsep="ice-candidate-policy"> ICE 候補ポリシー[[!RFC8829]]</span> が定義されます。
+            <span data-jsep="pc-constructor">[[!RFC8829]]</span> に記載されているように、 {{RTCConfiguration/iceTransportPolicy}} のメンバが指定されている場合、ブラウザがアプリケーションに許可された候補を表示するために使用する<span data-jsep="ice-candidate-policy"> ICE 候補ポリシー[[!RFC8829]]</span> が定義されます。
           </p>
           <div>
             <pre class="idl">enum RTCIceTransportPolicy {
@@ -689,13 +689,13 @@
             Offer/Answer Options
           </h4>
           <p>
-            これらのディクショナリには、オファー/アンサー作成プロセスを制御するために使用できるオプションが記載されています。
+            これらの辞書には、オファー/アンサー作成プロセスを制御するために使用できるオプションが記載されています。
           </p>
           <div>
             <pre class="idl">dictionary RTCOfferAnswerOptions {};</pre>
             <section>
               <h2>
-                Dictionary <dfn>RTCOfferAnswerOptions</dfn> Members
+                辞書 <dfn>RTCOfferAnswerOptions</dfn> のメンバ
               </h2>
               <dl data-link-for="RTCOfferAnswerOptions" data-dfn-for=
               "RTCOfferAnswerOptions" class="dictionary-members"></dl>
@@ -708,7 +708,7 @@
 };</pre>
             <section>
               <h2>
-                ディクショナリ <dfn>RTCOfferOptions</dfn> のメンバー
+                辞書 <dfn>RTCOfferOptions</dfn> のメンバ
               </h2>
               <dl data-link-for="RTCOfferOptions" data-dfn-for=
               "RTCOfferOptions" class="dictionary-members">
@@ -717,10 +717,10 @@
                 </dt>
                 <dd>
                   <p>
-                    このディクショナリメンバーの値が <code>true</code> である場合、または関連する {{RTCPeerConnection}} オブジェクトの {{RTCPeerConnection/[[LocalIceCredentialsToReplace]]}} スロットが空でない場合、生成された記述は、現在の資格情報とは異なるICE資格情報を持つことになります（ {{RTCPeerConnection/currentLocalDescription}} 属性の SDP で確認できます）。生成された記述を適用すると、 [[RFC5245]] のセクション 9.1.1.1 で説明されているように、 ICE が再起動されます。
+                    この辞書のメンバの値が <code>true</code> である場合、または関連する {{RTCPeerConnection}} オブジェクトの {{RTCPeerConnection/[[LocalIceCredentialsToReplace]]}} スロットが空でない場合、生成された記述は、現在の資格情報とは異なるICE資格情報を持つことになります（ {{RTCPeerConnection/currentLocalDescription}} 属性の SDP で確認できます）。生成された記述を適用すると、 [[RFC5245]] のセクション 9.1.1.1 で説明されているように、 ICE が再起動されます。
                   </p>
                   <p>
-                    このディクショナリメンバーの値が<code>false</code>で、関連する {{RTCPeerConnection}} オブジェクトの {{RTCPeerConnection/[[LocalIceCredentialsToReplace]]}} スロットが空のときかつ、 {{RTCPeerConnection/currentLocalDescription}} 属性に有効な ICE 認証情報がある場合、生成された Description は {{RTCPeerConnection/currentLocalDescription}} 属性からの現在の値と同じ ICE 認証情報を持つことになります。
+                    この辞書のメンバの値が<code>false</code>で、関連する {{RTCPeerConnection}} オブジェクトの {{RTCPeerConnection/[[LocalIceCredentialsToReplace]]}} スロットが空のときかつ、 {{RTCPeerConnection/currentLocalDescription}} 属性に有効な ICE 認証情報がある場合、生成された Description は {{RTCPeerConnection/currentLocalDescription}} 属性からの現在の値と同じ ICE 認証情報を持つことになります。
                   </p>
                   <p class="note">
                     ICE の再起動は、 {{RTCPeerConnection/iceConnectionState}} が {{RTCIceConnectionState/"failed"}} に遷移したときに行うことが推奨されます。アプリケーションはさらに、 {{RTCPeerConnection/iceConnectionState}} が {{RTCIceConnectionState/"disconnected"}} に遷移するのを待ち、他の情報源を使用して（ {{RTCPeerConnection/getStats}} を使用して、今後数秒間に送受信されるバイト数が増加するかどうかを測定するなど）、 ICE 再起動が望ましいかどうかを判断することもできます。
@@ -731,7 +731,7 @@
           </div>
           <div>
             <p>
-              <dfn>RTCAnswerOptions</dfn> ディクショナリは、 {{RTCSdpType/"answer"}} タイプのセッション記述に固有のオプションを記述します。(このバージョンの仕様ではなし)。
+              <dfn>RTCAnswerOptions</dfn> 辞書は、 {{RTCSdpType/"answer"}} タイプのセッション記述に固有のオプションを記述します。(このバージョンの仕様ではなし)。
             </p>
             <pre class="idl">
             dictionary RTCAnswerOptions : RTCOfferAnswerOptions {};</pre>
@@ -11012,13 +11012,13 @@ interface RTCRtpTransceiver {
           <!--
             Another implication is that the answerer cannot set the [= simulcast envelope =] directly. Upon calling the {{RTCPeerConnection/setRemoteDescription}} method of the {{RTCPeerConnection}} object, the [= simulcast envelope =] is configured on the {{RTCRtpTransceiver}} to contain the layers described by the specified session description. Once the envelope is determined, layers cannot be removed. They can be marked as inactive by setting the {{RTCRtpEncodingParameters/active}} member to <code>false</code> effectively disabling the layer.
           -->
-          もう1つの意味は、回答者が [= simulcast envelope =] を直接設定できないということです。{{RTCPeerConnection}} オブジェクトの {{RTCPeerConnection/setRemoteDescription}} メソッドを呼び出すと、{{RTCRtpTransceiver}} 上で、指定されたセッション記述で記述されたレイヤーを含むように [= simulcast envelope =] が設定されます。エンベロープが決定すると、レイヤーは削除できません。{{RTCRtpEncodingParameters/active}} メンバーを <code>false</code> に設定することで、レイヤーを非アクティブにすることができます。
+          もう1つの意味は、回答者が [= simulcast envelope =] を直接設定できないということです。{{RTCPeerConnection}} オブジェクトの {{RTCPeerConnection/setRemoteDescription}} メソッドを呼び出すと、{{RTCRtpTransceiver}} 上で、指定されたセッション記述で記述されたレイヤーを含むように [= simulcast envelope =] が設定されます。エンベロープが決定すると、レイヤーは削除できません。{{RTCRtpEncodingParameters/active}} メンバを <code>false</code> に設定することで、レイヤーを非アクティブにすることができます。
           </p>
           <p data-tests="simulcast/getStats.https.html">
           <!--
             While {{RTCRtpSender/setParameters}} cannot modify the [= simulcast envelope =], it is still possible to control the number of streams that are sent and the characteristics of those streams. Using {{RTCRtpSender/setParameters}}, simulcast streams can be made inactive by setting the {{RTCRtpEncodingParameters/active}} member to <code>false</code>, or can be reactivated by setting the {{RTCRtpEncodingParameters/active}} member to <code>true</code>.  Using {{RTCRtpSender/setParameters}}, stream characteristics can be changed by modifying attributes such as {{RTCRtpEncodingParameters/maxBitrate}}.
           -->
-          {{RTCRtpSender/setParameters}} は [= simulcast envelope =] を変更することはできませんが、送信されるストリームの数やストリームの特性を制御することは可能です。{{RTCRtpSender/setParameters}} を使用して、{{RTCRtpEncodingParameters/active}} メンバーを <code>false</code> に設定することで、サイマルキャスト・ストリームを非アクティブにしたり、{{RTCRtpEncodingParameters/active}} メンバーを <code>true</code> に設定することで、再アクティブにすることができます。{{RTCRtpSender/setParameters}} を使用して、{{RTCRtpEncodingParameters/maxBitrate}} などの属性を変更することで、ストリームの特性を変更することができます。
+          {{RTCRtpSender/setParameters}} は [= simulcast envelope =] を変更することはできませんが、送信されるストリームの数やストリームの特性を制御することは可能です。{{RTCRtpSender/setParameters}} を使用して、{{RTCRtpEncodingParameters/active}} メンバを <code>false</code> に設定することで、サイマルキャスト・ストリームを非アクティブにしたり、{{RTCRtpEncodingParameters/active}} メンバを <code>true</code> に設定することで、再アクティブにすることができます。{{RTCRtpSender/setParameters}} を使用して、{{RTCRtpEncodingParameters/maxBitrate}} などの属性を変更することで、ストリームの特性を変更することができます。
           </p>
           <p class="note" data-tests="simulcast/getStats.https.html">
           <!--
@@ -17302,7 +17302,7 @@ interface RTCErrorEvent : Event {
           <!--
           A connection will always reveal the IP addresses proposed for communication to the corresponding party. The application can limit this exposure by choosing not to use certain addresses using the settings exposed by the {{RTCIceTransportPolicy}} dictionary, and by using relays (for instance TURN servers) rather than direct connections between participants. One will normally assume that the IP address of TURN servers is not sensitive information. These choices can for instance be made by the application based on whether the user has indicated consent to start a media connection with the other party.
           -->
-          接続すると、通信に提案されたIPアドレスが常に対応する相手に公開されます。アプリケーションは、 {{RTCIceTransportPolicy}} ディクショナリで公開されている設定を使用して特定のアドレスを使用しないことを選択したり、参加者間の直接接続ではなくリレー（TURN サーバーなど）を使用したりすることで、この公開を制限することができます。通常、TURN サーバーの IP アドレスは機密情報ではないと考えられます。これらの選択は、例えば、ユーザーが相手とのメディア接続を開始することに同意しているかどうかに基づいて、アプリケーションが行うことができます。
+          接続すると、通信に提案されたIPアドレスが常に対応する相手に公開されます。アプリケーションは、 {{RTCIceTransportPolicy}} 辞書で公開されている設定を使用して特定のアドレスを使用しないことを選択したり、参加者間の直接接続ではなくリレー（TURN サーバーなど）を使用したりすることで、この公開を制限することができます。通常、TURN サーバーの IP アドレスは機密情報ではないと考えられます。これらの選択は、例えば、ユーザーが相手とのメディア接続を開始することに同意しているかどうかに基づいて、アプリケーションが行うことができます。
         </p>
         <p>
           <!--
