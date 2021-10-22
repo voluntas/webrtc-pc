@@ -15738,21 +15738,15 @@ async function gatherStats(pc) {
         </h3>
         <p class="needs-test">
           <!--
-          A {{MediaStreamTrack}} object's reference to its {{MediaStream}} in
-          the non-local media source case (an RTP source, as is the case for
-          each {{MediaStreamTrack}} associated with an {{RTCRtpReceiver}}) is
-          always strong.
+          A {{MediaStreamTrack}} object's reference to its {{MediaStream}} in the non-local media source case (an RTP source, as is the case for each {{MediaStreamTrack}} associated with an {{RTCRtpReceiver}}) is always strong.
           -->
+          {{MediaStreamTrack}} オブジェクトの {{MediaStream}} への参照は、非ローカルメディアソースの場合（{{RTCRtpReceiver}} に関連付けられた各 {{MediaStreamTrack}} のように、RTP ソースの場合）には、常に強力です。
         </p>
         <p data-tests="RTCPeerConnection-remote-track-mute.https.html">
           <!--
-          Whenever an {{RTCRtpReceiver}} receives data on an RTP source whose
-          corresponding {{MediaStreamTrack}} is muted, but not ended, and the
-          {{RTCRtpTransceiver/[[Receptive]]}} slot of the {{RTCRtpTransceiver}} object the
-          {{RTCRtpReceiver}} is a member of is <code>true</code>, it MUST queue
-          a task to [= set the muted state =] of the corresponding
-          {{MediaStreamTrack}} to <code>false</code>.
+          Whenever an {{RTCRtpReceiver}} receives data on an RTP source whose corresponding {{MediaStreamTrack}} is muted, but not ended, and the {{RTCRtpTransceiver/[[Receptive]]}} slot of the {{RTCRtpTransceiver}} object the {{RTCRtpReceiver}} is a member of is <code>true</code>, it MUST queue a task to [= set the muted state =] of the corresponding {{MediaStreamTrack}} to <code>false</code>.
           -->
+          対応する {{MediaStreamTrack}} がミュートされているが終了していない RTP ソースのデータを {{RTCRtpReceiver}} が受信するたびに。また、{{RTCRtpTransceiver/[[Receptive]]}} スロットが <code>true</code> である {{RTCRtpReceiver}}オブジェクトのメンバーである場合、対応する {{MediaStreamTrack}} のミュート状態を <code>false</code> に設定する [= set the muted state =] タスクをキューに入れなければならない（MUST）。
         </p>
         <p class="needs-test">
           <!--
